@@ -8,6 +8,8 @@ escritorio::escritorio(QString letra_)
     this->pila = new piladocumentos();
     this->letra = letra_;
     this->docs = 0;
+    this->estado = "Disponible";
+    this->turnos = 0;
 }
 
 void escritorio::insertarpasajero(pasajero *pasajero_)
@@ -29,7 +31,7 @@ void escritorio::insertarpasajero(pasajero *pasajero_)
     }
 }
 
-void escritorio::pop()
+void escritorio::pop(equipaje *equipaje_)
 {
     if(this->cola != nullptr)
     {
@@ -38,13 +40,14 @@ void escritorio::pop()
             //eliminar si el pasajero ya no tiene turnos
             if(this->cola->primero->turnos == 0)
             {
-                this->cola->pop();
+                this->cola->pop(equipaje_);
                 this->pila->vaciar();
                 //insertar los documentos del primer pasajero
                 for(int i=0;i < this->cola->primero->documentos;i++)
                 {
                     this->pila->push();
                 }
+                this->turnos = this->cola->primero->turnos;
                 //no insertar si el primer pasajero de la cola no tiene documentos
                 if(this->cola->primero->documentos != 0)
                 {
@@ -53,7 +56,11 @@ void escritorio::pop()
                 }
             }
             //reducir la cantidad de turnos
-            else this->cola->primero->turnos--;
+            else
+            {
+                this->cola->primero->turnos--;
+                this->turnos = this->cola->primero->turnos;
+            }
         }
     }
 }
@@ -124,12 +131,12 @@ escritorio *escritorios::getcola()
     return nullptr;
 }
 
-void escritorios::eliminarpasajeros()
+void escritorios::eliminarpasajeros(equipaje *equipaje_)
 {
     escritorio *temp = this->primero;
     while(temp != nullptr)
     {
-        temp->pop();//eliminar pasajero si ya no tiene turnos
+        temp->pop(equipaje_);//eliminar pasajero si ya no tiene turnos
         temp = temp->siguiente;
     }
 }

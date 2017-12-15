@@ -2,6 +2,7 @@
 #define COLAPASAJEROS_H
 
 #include <pasajero.h>
+#include <equipaje.h>
 
 typedef struct colapasajeros colapasajeros;
 
@@ -13,7 +14,7 @@ struct colapasajeros
 
     colapasajeros();
     void push(pasajero *pasajero_);
-    void pop();
+    void pop(equipaje *equipaje_);
 };
 
 #endif // COLAPASAJEROS_H

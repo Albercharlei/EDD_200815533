@@ -31,7 +31,9 @@ SOURCES += \
     pasajero.cpp \
     colapasajeros.cpp \
     piladocumentos.cpp \
-    escritorios.cpp
+    escritorios.cpp \
+    equipaje.cpp \
+    mantenimiento.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +42,9 @@ HEADERS += \
     pasajero.h \
     colapasajeros.h \
     piladocumentos.h \
-    escritorios.h
+    escritorios.h \
+    equipaje.h \
+    mantenimiento.h
 
 FORMS += \
         mainwindow.ui

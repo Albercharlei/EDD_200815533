@@ -30,8 +30,14 @@ void colapasajeros::push(pasajero *pasajero_)
     }
 }
 
-void colapasajeros::pop()
+void colapasajeros::pop(equipaje *equipaje_)
 {
-    if(this->primero != nullptr) this->primero = this->primero->siguiente;
+    if(this->primero != nullptr)
+    {
+        //eliminar equipaje
+        for(int i=0;i<this->primero->maletas;i++)
+            equipaje_->pop();
+        this->primero = this->primero->siguiente;
+    }
     this->cont--;
 }

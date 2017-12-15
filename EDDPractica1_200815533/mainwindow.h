@@ -6,6 +6,8 @@
 //#include <piladocumentos.h>
 //#include <colapasajeros.h>
 #include <escritorios.h>
+#include <equipaje.h>
+#include <mantenimiento.h>
 
 #include <graficador.h>
 
@@ -23,6 +25,8 @@ public:
     pista *mainpista;
     desabordaje *maindesabordaje;
     escritorios *mainescritorios;
+    equipaje *mainequipaje;
+    mantenimiento *mainmantenimiento;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 

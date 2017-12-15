@@ -57,7 +57,9 @@ SOURCES       = ../EDDPractica1_200815533/main.cpp \
 		../EDDPractica1_200815533/pasajero.cpp \
 		../EDDPractica1_200815533/colapasajeros.cpp \
 		../EDDPractica1_200815533/piladocumentos.cpp \
-		../EDDPractica1_200815533/escritorios.cpp moc_mainwindow.cpp
+		../EDDPractica1_200815533/escritorios.cpp \
+		../EDDPractica1_200815533/equipaje.cpp \
+		../EDDPractica1_200815533/mantenimiento.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		avion.o \
@@ -66,6 +68,8 @@ OBJECTS       = main.o \
 		colapasajeros.o \
 		piladocumentos.o \
 		escritorios.o \
+		equipaje.o \
+		mantenimiento.o \
 		moc_mainwindow.o
 DIST          = /Applications/QT/5.9.1/clang_64/mkspecs/features/spec_pre.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/qdevice.pri \
@@ -200,6 +204,7 @@ DIST          = /Applications/QT/5.9.1/clang_64/mkspecs/features/spec_pre.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/qt_config.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/spec_post.prf \
+		../EDDPractica1_200815533/.qmake.stash \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/toolchain.prf \
@@ -232,14 +237,18 @@ DIST          = /Applications/QT/5.9.1/clang_64/mkspecs/features/spec_pre.prf \
 		../EDDPractica1_200815533/pasajero.h \
 		../EDDPractica1_200815533/colapasajeros.h \
 		../EDDPractica1_200815533/piladocumentos.h \
-		../EDDPractica1_200815533/escritorios.h ../EDDPractica1_200815533/main.cpp \
+		../EDDPractica1_200815533/escritorios.h \
+		../EDDPractica1_200815533/equipaje.h \
+		../EDDPractica1_200815533/mantenimiento.h ../EDDPractica1_200815533/main.cpp \
 		../EDDPractica1_200815533/mainwindow.cpp \
 		../EDDPractica1_200815533/avion.cpp \
 		../EDDPractica1_200815533/graficador.cpp \
 		../EDDPractica1_200815533/pasajero.cpp \
 		../EDDPractica1_200815533/colapasajeros.cpp \
 		../EDDPractica1_200815533/piladocumentos.cpp \
-		../EDDPractica1_200815533/escritorios.cpp
+		../EDDPractica1_200815533/escritorios.cpp \
+		../EDDPractica1_200815533/equipaje.cpp \
+		../EDDPractica1_200815533/mantenimiento.cpp
 QMAKE_TARGET  = EDDPractica1_200815533
 DESTDIR       = 
 TARGET        = EDDPractica1_200815533.app/Contents/MacOS/EDDPractica1_200815533
@@ -390,6 +399,7 @@ Makefile: ../EDDPractica1_200815533/EDDPractica1_200815533.pro /Applications/QT/
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/qt_config.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Applications/QT/5.9.1/clang_64/mkspecs/features/toolchain.prf \
@@ -554,6 +564,7 @@ Makefile: ../EDDPractica1_200815533/EDDPractica1_200815533.pro /Applications/QT/
 /Applications/QT/5.9.1/clang_64/mkspecs/features/qt_config.prf:
 /Applications/QT/5.9.1/clang_64/mkspecs/macx-clang/qmake.conf:
 /Applications/QT/5.9.1/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Applications/QT/5.9.1/clang_64/mkspecs/features/exclusive_builds.prf:
 /Applications/QT/5.9.1/clang_64/mkspecs/features/mac/sdk.prf:
 /Applications/QT/5.9.1/clang_64/mkspecs/features/toolchain.prf:
@@ -614,8 +625,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Applications/QT/5.9.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../EDDPractica1_200815533/mainwindow.h ../EDDPractica1_200815533/avion.h ../EDDPractica1_200815533/graficador.h ../EDDPractica1_200815533/pasajero.h ../EDDPractica1_200815533/colapasajeros.h ../EDDPractica1_200815533/piladocumentos.h ../EDDPractica1_200815533/escritorios.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../EDDPractica1_200815533/main.cpp ../EDDPractica1_200815533/mainwindow.cpp ../EDDPractica1_200815533/avion.cpp ../EDDPractica1_200815533/graficador.cpp ../EDDPractica1_200815533/pasajero.cpp ../EDDPractica1_200815533/colapasajeros.cpp ../EDDPractica1_200815533/piladocumentos.cpp ../EDDPractica1_200815533/escritorios.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../EDDPractica1_200815533/mainwindow.h ../EDDPractica1_200815533/avion.h ../EDDPractica1_200815533/graficador.h ../EDDPractica1_200815533/pasajero.h ../EDDPractica1_200815533/colapasajeros.h ../EDDPractica1_200815533/piladocumentos.h ../EDDPractica1_200815533/escritorios.h ../EDDPractica1_200815533/equipaje.h ../EDDPractica1_200815533/mantenimiento.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../EDDPractica1_200815533/main.cpp ../EDDPractica1_200815533/mainwindow.cpp ../EDDPractica1_200815533/avion.cpp ../EDDPractica1_200815533/graficador.cpp ../EDDPractica1_200815533/pasajero.cpp ../EDDPractica1_200815533/colapasajeros.cpp ../EDDPractica1_200815533/piladocumentos.cpp ../EDDPractica1_200815533/escritorios.cpp ../EDDPractica1_200815533/equipaje.cpp ../EDDPractica1_200815533/mantenimiento.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../EDDPractica1_200815533/mainwindow.ui $(DISTDIR)/
 
 
@@ -626,6 +637,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r EDDPractica1_200815533.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -654,9 +666,11 @@ moc_mainwindow.cpp: ../EDDPractica1_200815533/avion.h \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QString \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../EDDPractica1_200815533/pasajero.h \
-		../EDDPractica1_200815533/piladocumentos.h \
-		../EDDPractica1_200815533/colapasajeros.h \
 		../EDDPractica1_200815533/escritorios.h \
+		../EDDPractica1_200815533/colapasajeros.h \
+		../EDDPractica1_200815533/equipaje.h \
+		../EDDPractica1_200815533/piladocumentos.h \
+		../EDDPractica1_200815533/mantenimiento.h \
 		../EDDPractica1_200815533/graficador.h \
 		/Applications/QT/5.9.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Applications/QT/5.9.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -691,9 +705,11 @@ main.o: ../EDDPractica1_200815533/main.cpp ../EDDPractica1_200815533/mainwindow.
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QString \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../EDDPractica1_200815533/pasajero.h \
-		../EDDPractica1_200815533/piladocumentos.h \
-		../EDDPractica1_200815533/colapasajeros.h \
 		../EDDPractica1_200815533/escritorios.h \
+		../EDDPractica1_200815533/colapasajeros.h \
+		../EDDPractica1_200815533/equipaje.h \
+		../EDDPractica1_200815533/piladocumentos.h \
+		../EDDPractica1_200815533/mantenimiento.h \
 		../EDDPractica1_200815533/graficador.h \
 		/Applications/QT/5.9.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Applications/QT/5.9.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -706,9 +722,11 @@ mainwindow.o: ../EDDPractica1_200815533/mainwindow.cpp ../EDDPractica1_200815533
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QString \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../EDDPractica1_200815533/pasajero.h \
-		../EDDPractica1_200815533/piladocumentos.h \
-		../EDDPractica1_200815533/colapasajeros.h \
 		../EDDPractica1_200815533/escritorios.h \
+		../EDDPractica1_200815533/colapasajeros.h \
+		../EDDPractica1_200815533/equipaje.h \
+		../EDDPractica1_200815533/piladocumentos.h \
+		../EDDPractica1_200815533/mantenimiento.h \
 		../EDDPractica1_200815533/graficador.h \
 		/Applications/QT/5.9.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Applications/QT/5.9.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -725,6 +743,11 @@ graficador.o: ../EDDPractica1_200815533/graficador.cpp ../EDDPractica1_200815533
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../EDDPractica1_200815533/avion.h \
 		../EDDPractica1_200815533/pasajero.h \
+		../EDDPractica1_200815533/escritorios.h \
+		../EDDPractica1_200815533/colapasajeros.h \
+		../EDDPractica1_200815533/equipaje.h \
+		../EDDPractica1_200815533/piladocumentos.h \
+		../EDDPractica1_200815533/mantenimiento.h \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QTextStream \
@@ -736,14 +759,34 @@ pasajero.o: ../EDDPractica1_200815533/pasajero.cpp ../EDDPractica1_200815533/pas
 		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pasajero.o ../EDDPractica1_200815533/pasajero.cpp
 
-colapasajeros.o: ../EDDPractica1_200815533/colapasajeros.cpp ../EDDPractica1_200815533/colapasajeros.h
+colapasajeros.o: ../EDDPractica1_200815533/colapasajeros.cpp ../EDDPractica1_200815533/colapasajeros.h \
+		../EDDPractica1_200815533/pasajero.h \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../EDDPractica1_200815533/equipaje.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o colapasajeros.o ../EDDPractica1_200815533/colapasajeros.cpp
 
-piladocumentos.o: ../EDDPractica1_200815533/piladocumentos.cpp ../EDDPractica1_200815533/piladocumentos.h
+piladocumentos.o: ../EDDPractica1_200815533/piladocumentos.cpp ../EDDPractica1_200815533/piladocumentos.h \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o piladocumentos.o ../EDDPractica1_200815533/piladocumentos.cpp
 
-escritorios.o: ../EDDPractica1_200815533/escritorios.cpp ../EDDPractica1_200815533/escritorios.h
+escritorios.o: ../EDDPractica1_200815533/escritorios.cpp ../EDDPractica1_200815533/escritorios.h \
+		../EDDPractica1_200815533/colapasajeros.h \
+		../EDDPractica1_200815533/pasajero.h \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../EDDPractica1_200815533/equipaje.h \
+		../EDDPractica1_200815533/piladocumentos.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o escritorios.o ../EDDPractica1_200815533/escritorios.cpp
+
+equipaje.o: ../EDDPractica1_200815533/equipaje.cpp ../EDDPractica1_200815533/equipaje.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipaje.o ../EDDPractica1_200815533/equipaje.cpp
+
+mantenimiento.o: ../EDDPractica1_200815533/mantenimiento.cpp ../EDDPractica1_200815533/mantenimiento.h \
+		../EDDPractica1_200815533/avion.h \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/QString \
+		/Applications/QT/5.9.1/clang_64/lib/QtCore.framework/Headers/qstring.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mantenimiento.o ../EDDPractica1_200815533/mantenimiento.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
