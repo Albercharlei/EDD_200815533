@@ -80,3 +80,19 @@ void colaestacion::pop()
     avion *temp = this->primero;
     if(temp != nullptr) this->primero = this->primero->siguiente;
 }
+
+QString mantenimiento::salidaconsola()
+{
+    QString salida = "--------------Estaciones de mantenimiento--------------\n";
+    estacion *temp = this->primero;
+    while(temp != nullptr)
+    {
+        salida += "*Estación " + QString::number(temp->id) + "\n";
+        if(temp->cola->primero == nullptr) salida += "\tAvión en mantenimiento: ninguno\n\tTurnos restantes: 0\n";
+        else salida += "\tAvión en mantenimiento: Avión " + QString::number(temp->cola->primero->cont) + "\n\tTurnos restantes: " + QString::number(temp->cola->primero->mantenimiento) + "\n";
+        temp = temp->siguiente;
+    }
+
+    salida += "---------------------------------------------------\n";
+    return salida;
+}

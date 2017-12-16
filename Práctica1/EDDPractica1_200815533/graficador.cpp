@@ -37,7 +37,7 @@ QString graficador::graficar(pista *pista_, desabordaje *desabordaje_, escritori
     //system("cd /Volumes/Macintosh\ HD/Users/charlei/Desktop/");
     std::string ruta = "open " + archivo.fileName().toStdString();
     //system("cd /Volumes/Macintosh\\ HD/Users/");
-    //system("dot -Tjpeg -O pista.dot");
+    system("dot -Tjpeg -O /Volumes/Macintosh\\ HD/Users/pista.dot");
     system("open /Volumes/Macintosh\\ HD/Users/pista.dot");
     //system("rm /Volumes/Macintosh\\ HD/Users/pista.dot");
     return salida;

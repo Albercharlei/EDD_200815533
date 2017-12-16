@@ -35,6 +35,7 @@ struct escritorios//lista ordenada
     //void insertarpasajero(pasajero *pasajero_);
     escritorio *getcola();
     void eliminarpasajeros(equipaje *equipaje_);
+    QString salidaconsola();
 };
 
 #endif // ESCRITORIOS_H

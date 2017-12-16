@@ -8,6 +8,7 @@ typedef struct pista pista;
 struct avion
 {
     int pasajero;//cantidad de pasajeros en el avión
+    int desabordado;//indicador de desabordaje
     int desabordaje;//cantidad de turnos en el aeropuerto durante el desbordaje
     int mantenimiento;//cantidad de turnos en las estaciones de mantenimiento
     int tipo;//1: pequeño, 2: mediano, 3: grande
@@ -27,6 +28,7 @@ struct pista
     void push();
     avion *pop();
     pista();
+    QString salidaconsola();
 };
 
 #endif // AVION_H

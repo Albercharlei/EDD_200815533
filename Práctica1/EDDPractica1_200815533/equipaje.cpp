@@ -51,3 +51,16 @@ void equipaje::pop()
         }
     }
 }
+
+QString equipaje::salidaconsola()
+{
+    QString salida = "--------------Línea de equipaje--------------\n";
+    if(this->cabeza != nullptr)
+    {
+        int cantidad = this->cabeza->anterior->id - this->cabeza->id + 1;
+        salida += "Cantidad de maletas en el sistema: " + QString::number(cantidad) + "\n";
+    }
+    else salida += "Cantidad de maletas en el sistema: 0\n";
+    salida += "---------------------------------------------------\n";
+    return salida;
+}

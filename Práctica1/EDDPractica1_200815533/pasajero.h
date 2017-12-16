@@ -12,6 +12,7 @@ struct pasajero
     int maletas;//cantidad de maletas aleatorias
     int documentos;//cantidad de documentos del pasajero
     int turnos;//cantidad de turnos en el registro
+    int entregado;//entrega de documentos
 
     pasajero *siguiente;
     pasajero(int id_);

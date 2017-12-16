@@ -22,11 +22,14 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    //estructuras
     pista *mainpista;
     desabordaje *maindesabordaje;
     escritorios *mainescritorios;
     equipaje *mainequipaje;
     mantenimiento *mainmantenimiento;
+    QString textoconsola;//texto de consola
+    int turno;//contador de turnos
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 

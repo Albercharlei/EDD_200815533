@@ -19,16 +19,12 @@ void escritorio::insertarpasajero(pasajero *pasajero_)
     //insertar el pasajero
     this->cola->push(pasajero_);
     //insertar los documentos del primer pasajero
-    for(int i=0;i < this->cola->primero->documentos;i++)
+    if(this->cola->primero->entregado == 1)
     {
-        this->pila->push();
+        for(int i=0;i < this->cola->primero->documentos;i++) this->pila->push();
+        this->cola->primero->entregado = 0;
     }
-    //no insertar si el primer pasajero de la cola no tiene documentos
-    if(this->cola->primero->documentos != 0)
-    {
-        this->docs = this->cola->primero->documentos;
-        this->cola->primero->documentos = 0;
-    }
+    this->docs = this->cola->primero->documentos;
 }
 
 void escritorio::pop(equipaje *equipaje_)
@@ -139,4 +135,20 @@ void escritorios::eliminarpasajeros(equipaje *equipaje_)
         temp->pop(equipaje_);//eliminar pasajero si ya no tiene turnos
         temp = temp->siguiente;
     }
+}
+
+QString escritorios::salidaconsola()
+{
+    QString salida = "--------------Escritorios de registro--------------\n";
+    escritorio *temp = this->primero;
+    while(temp != nullptr)
+    {
+        salida += "*Escritorio " + temp->letra + "\n";
+        if(temp->cola->primero == nullptr) salida += "\tPasajero atendido: ninguno\n\tCantidad de documentos: 0\n\tTurnos restantes: 0\n";
+        else salida += "\tPasajero atendido: Pasajero " + QString::number(temp->cola->primero->id) + "\n\tCantidad de documentos: " + QString::number(temp->docs) + "\n\tTurnos restantes: " + QString::number(temp->turnos) + "\n";
+        temp = temp->siguiente;
+    }
+
+    salida += "---------------------------------------------------\n";
+    return salida;
 }

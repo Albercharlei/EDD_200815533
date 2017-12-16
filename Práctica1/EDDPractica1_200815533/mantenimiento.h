@@ -26,6 +26,7 @@ struct mantenimiento
     void eliminaraviones();
     estacion *getestacion();
     mantenimiento();
+    QString salidaconsola();
 };
 
 struct colaestacion

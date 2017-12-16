@@ -17,6 +17,7 @@ pasajero::pasajero(int id_)
     //generar turnos para registro
     std::uniform_int_distribution<int> t(1,3);
     this->turnos = t(rd);
+    this->entregado = 1;
 }
 
 //constructor del desabordaje

@@ -27,6 +27,16 @@
      <string>PUSH!</string>
     </property>
    </widget>
+   <widget class="QTextEdit" name="consola">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>701</width>
+      <height>341</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

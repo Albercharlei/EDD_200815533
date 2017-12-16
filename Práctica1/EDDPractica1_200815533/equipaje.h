@@ -1,5 +1,6 @@
 #ifndef EQUIPAJE_H
 #define EQUIPAJE_H
+#include <QString>
 
 typedef struct maleta maleta;
 typedef struct equipaje equipaje;
@@ -21,6 +22,7 @@ struct equipaje
     void push();
     void pop();
     equipaje();
+    QString salidaconsola();
 };
 
 #endif // EQUIPAJE_H

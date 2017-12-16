@@ -8,6 +8,7 @@ avion::avion()
     this->siguiente = nullptr;
     this->anterior = nullptr;
     this->cont = 1;//contador por defecto
+    this->desabordado = 1;
     std::uniform_int_distribution<int> p(1,3);//rango
     std::random_device rd;
     this->tipo = p(rd);//generar entero aleatorio
@@ -80,4 +81,21 @@ avion *pista::pop()
         return ret;
     }
     else return nullptr;
+}
+
+QString pista::salidaconsola()
+{
+    QString salida = "--------------Pista--------------\n";
+    if(this->ultimo != nullptr)
+    {
+        salida += "LLegada del avión No. " + QString::number(this->ultimo->cont) + "\n";
+    }
+    if(this->primero != nullptr)
+    {
+        salida += "Avión desabordando: Avión No. " + QString::number(this->primero->cont) + "\n";
+        salida += "Cantidad de pasajeros: " + QString::number(this->primero->pasajero) + "\n";
+        salida += "Turnos restantes: " + QString::number(this->primero->desabordaje) + "\n";
+    }
+    salida += "---------------------------------------------------\n";
+    return salida;
 }
