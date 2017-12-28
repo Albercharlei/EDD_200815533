@@ -1,0 +1,10 @@
+Digraph users {
+Rankdir=TD
+node [shape =circle]user4 [label="Usuario: user4"];
+user2 [label="Usuario: user2"];
+user1 [label="Usuario: user1"];
+user2 -> user1;
+user4 -> user2;
+user5modificado [label="Usuario: user5modificado"];
+user4 -> user5modificado;
+}
