@@ -33,75 +33,79 @@ namespace ProyectServer
         public void graficarnivel(nivel ingreso)
         {
             String dotgraph = "Digraph nivel" + ingreso.val.ToString() + "{\nRankdir=TD\nnode [shape =rectangle]";
-            pos tempx = ingreso.horizontal.primero;
-            //agregar nodos de las cabeceras
-            dotgraph += "{rank=min;";
-            while(tempx.siguiente != null)
+            if (ingreso.horizontal != null)
             {
-                dotgraph += "Pos" + tempx.val.ToString() + "x [label=\"" + "Pos" + tempx.val.ToString() + "x\"];\n";
-                tempx = tempx.siguiente;
-            }
-            dotgraph += "Pos" + tempx.val.ToString() + "x [label=\"" + "Pos" + tempx.val.ToString() + "x\"]};\n";
+                pos tempx = ingreso.horizontal.primero;
+                //agregar nodos de las cabeceras
+                dotgraph += "{rank=min;";
+                while (tempx.siguiente != null)
+                {
+                    dotgraph += "Pos" + tempx.val.ToString() + "x [label=\"" + "Pos" + tempx.val.ToString() + "x\"];\n";
+                    tempx = tempx.siguiente;
+                }
+                dotgraph += "Pos" + tempx.val.ToString() + "x [label=\"" + "Pos" + tempx.val.ToString() + "x\"]};\n";
 
-            //agregar apuntadores de coordenadas en x
-            tempx = ingreso.horizontal.primero;
-            while(tempx.siguiente != null)
-            {
-                dotgraph += "Pos" + tempx.val.ToString() + "x -> " + "Pos" + tempx.siguiente.val.ToString() + "x;\n";
-                dotgraph += "Pos" + tempx.siguiente.val.ToString() + "x -> " + "Pos" + tempx.val.ToString() + "x;\n";
-                tempx = tempx.siguiente;
-            }
-            //agregar filas
-            pos tempy = ingreso.vertical.primero;
-            while (tempy != null)
-            {
-                dotgraph += "{rank=same;" + "Pos" + tempy.val.ToString() + "y [label=\"" + "Pos" + tempy.val.ToString() + "y\"]";
-                unit temp = tempy.primero;
-                while(temp != null)
+                //agregar apuntadores de coordenadas en x
+                tempx = ingreso.horizontal.primero;
+                while (tempx.siguiente != null)
                 {
-                    dotgraph += ";Unit" + temp.id + temp.x.ToString() + temp.y.ToString();
-                    dotgraph += " [label=\"Unidad: " + temp.id + "\nHp: " + temp.hp.ToString()+"\nAtaque: "+temp.atk.ToString() + "\nMovimiento: "+temp.mov.ToString()+"\"]";
-                    temp = temp.der;
+                    dotgraph += "Pos" + tempx.val.ToString() + "x -> " + "Pos" + tempx.siguiente.val.ToString() + "x;\n";
+                    dotgraph += "Pos" + tempx.siguiente.val.ToString() + "x -> " + "Pos" + tempx.val.ToString() + "x;\n";
+                    tempx = tempx.siguiente;
                 }
-                dotgraph += "};\n"; 
-                tempy = tempy.siguiente;
-            }
-            //agregar apuntadores verticales
-            tempx = ingreso.horizontal.primero;
-            while(tempx != null)
-            {
-                unit temp = tempx.primero;
-                dotgraph += "Pos" + tempx.val.ToString() + "x -> Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
-                while(temp.abajo != null)
+                //agregar filas
+                pos tempy = ingreso.vertical.primero;
+                while (tempy != null)
                 {
-                    dotgraph += "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + " -> " + "Unit" + temp.abajo.id + temp.abajo.x.ToString() + temp.abajo.y.ToString() + ";\n";
-                    dotgraph += "Unit" + temp.abajo.id + temp.abajo.x.ToString() + temp.abajo.y.ToString() + " -> " + "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
-                    temp = temp.abajo;
+                    dotgraph += "{rank=same;" + "Pos" + tempy.val.ToString() + "y [label=\"" + "Pos" + tempy.val.ToString() + "y\"]";
+                    unit temp = tempy.primero;
+                    while (temp != null)
+                    {
+                        dotgraph += ";Unit" + temp.id + temp.x.ToString() + temp.y.ToString();
+                        dotgraph += " [label=\"Unidad: " + temp.id + "\nHp: " + temp.hp.ToString() + "\nAtaque: " + temp.atk.ToString() + "\nMovimiento: " + temp.mov.ToString() + "\"]";
+                        temp = temp.der;
+                    }
+                    dotgraph += "};\n";
+                    tempy = tempy.siguiente;
                 }
-                tempx = tempx.siguiente;
-            }
-            //agregar apuntadores de cabeceras en y
-            tempy = ingreso.vertical.primero;
-            while(tempy.siguiente != null)
-            {
-                dotgraph += "Pos" + tempy.val.ToString() + "y -> " + "Pos" + tempy.siguiente.val.ToString() + "y;\n";
-                dotgraph += "Pos" + tempy.siguiente.val.ToString() + "y -> " + "Pos" + tempy.val.ToString() + "y;\n";
-                tempy = tempy.siguiente;
-            }
-            //agregar apuntadores horizontales
-            tempy = ingreso.vertical.primero;
-            while (tempy != null)
-            {
-                unit temp = tempy.primero;
-                dotgraph += "Pos" + tempy.val.ToString() + "y -> Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n"; 
-                while (temp.der != null)
+                //agregar apuntadores verticales
+                tempx = ingreso.horizontal.primero;
+                while (tempx != null)
                 {
-                    dotgraph += "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + " -> " + "Unit" + temp.der.id + temp.der.x.ToString() + temp.der.y.ToString() + ";\n";
-                    dotgraph += "Unit" + temp.der.id + temp.der.x.ToString() + temp.der.y.ToString() + " -> " + "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
-                    temp = temp.der;
+                    unit temp = tempx.primero;
+                    dotgraph += "Pos" + tempx.val.ToString() + "x -> Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
+                    while (temp.abajo != null)
+                    {
+                        dotgraph += "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + " -> " + "Unit" + temp.abajo.id + temp.abajo.x.ToString() + temp.abajo.y.ToString() + ";\n";
+                        dotgraph += "Unit" + temp.abajo.id + temp.abajo.x.ToString() + temp.abajo.y.ToString() + " -> " + "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
+                        temp = temp.abajo;
+                    }
+                    tempx = tempx.siguiente;
                 }
-                tempy = tempy.siguiente;
+                //agregar apuntadores de cabeceras en y
+                tempy = ingreso.vertical.primero;
+                while (tempy.siguiente != null)
+                {
+                    dotgraph += "Pos" + tempy.val.ToString() + "y -> " + "Pos" + tempy.siguiente.val.ToString() + "y;\n";
+                    dotgraph += "Pos" + tempy.siguiente.val.ToString() + "y -> " + "Pos" + tempy.val.ToString() + "y;\n";
+                    tempy = tempy.siguiente;
+                }
+                //agregar apuntadores horizontales
+                tempy = ingreso.vertical.primero;
+                while (tempy != null)
+                {
+                    unit temp = tempy.primero;
+                    dotgraph += "Pos" + tempy.val.ToString() + "y -> Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
+                    while (temp.der != null)
+                    {
+                        dotgraph += "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + " -> " + "Unit" + temp.der.id + temp.der.x.ToString() + temp.der.y.ToString() + ";\n";
+                        dotgraph += "Unit" + temp.der.id + temp.der.x.ToString() + temp.der.y.ToString() + " -> " + "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
+                        temp = temp.der;
+                    }
+                    tempy = tempy.siguiente;
+                }
             }
+            
             //terminar grafo
             dotgraph += "}\n";
             //generar grafo

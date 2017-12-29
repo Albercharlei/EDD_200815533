@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterusers/masterusers.Master" AutoEventWireup="true" CodeBehind="showusers.aspx.cs" Inherits="ProyectServer.master.WebForm6" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="showsobrevivientes.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Titleplaceholder" runat="server">
-    <asp:Label Text="Árbol de jugadores" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Menuplaceholder" runat="server">
     <asp:Menu ID="Menu1" runat="server">
@@ -25,19 +24,15 @@
     </asp:Menu>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <asp:Table runat="server" BorderColor="Black" BorderWidth="1" GridLines="Both">
-        <asp:TableHeaderRow runat="server">
-            <asp:TableCell runat="server">Altura del árbol</asp:TableCell>
-            <asp:TableCell runat="server">Niveles</asp:TableCell>
-            <asp:TableCell runat="server">Cantidad de nodos rama</asp:TableCell>
-            <asp:TableCell runat="server">Cantidad de nodos hoja</asp:TableCell>
-        </asp:TableHeaderRow>
-        <asp:TableRow runat="server">
-            <asp:TableCell runat="server"><asp:Label runat="server" ID="labelaltura" /></asp:TableCell>
-            <asp:TableCell runat="server"><asp:Label runat="server" ID="labelniveles" /></asp:TableCell>
-            <asp:TableCell runat="server"><asp:Label runat="server" ID="labelramas" /></asp:TableCell>
-            <asp:TableCell runat="server"><asp:Label runat="server" ID="labelhojas" /></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <asp:Image ID="arbol" runat="server" />
+    <asp:Label runat="server" Text="Nivel 1" Font-Size="14" />
+    <asp:Image ID="lvl1" runat="server" />
+    <div />
+    <asp:Label runat="server" Text="Nivel 2" Font-Size="14" />
+    <asp:Image ID="lvl2" runat="server" />
+    <div />
+    <asp:Label runat="server" Text="Nivel 3" Font-Size="14" />
+    <asp:Image ID="lvl3" runat="server" />
+    <div />
+    <asp:Label runat="server" Text="Nivel 4" Font-Size="14" />
+    <asp:Image ID="lvl4" runat="server" />
 </asp:Content>

@@ -104,8 +104,9 @@ namespace ProyectServer.master.masterjuegos
                             String col = contenido[1].ToString();
                             int fila = Int32.Parse(contenido[2].ToString());
                             String id = contenido[3].ToString();
+                            int existe = Int32.Parse(contenido[4].ToString());
                             //ingresar el contenido
-                            tab.insertar(col, fila, id, user);
+                            tab.insertar(col, fila, id, user, existe);
                         }
                         catch (IndexOutOfRangeException ex) { String outex = ex.ToString(); }
                     }

@@ -1,21 +1,10 @@
 Digraph nivel3{
 Rankdir=TD
-node [shape =rectangle]{rank=min;Pos3x [label="Pos3x"];
-Pos4x [label="Pos4x"]};
-Pos3x -> Pos4x;
-Pos4x -> Pos3x;
+node [shape =rectangle]{rank=min;Pos3x [label="Pos3x"]};
 {rank=same;Pos2y [label="Pos2y"];UnitBombardero132 [label="Unidad: Bombardero1
 Hp: 10
 Ataque: 5
 Movimiento: 7"]};
-{rank=same;Pos12y [label="Pos12y"];UnitBombardero2412 [label="Unidad: Bombardero2
-Hp: 10
-Ataque: 5
-Movimiento: 7"]};
 Pos3x -> UnitBombardero132;
-Pos4x -> UnitBombardero2412;
-Pos2y -> Pos12y;
-Pos12y -> Pos2y;
 Pos2y -> UnitBombardero132;
-Pos12y -> UnitBombardero2412;
 }

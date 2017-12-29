@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="finalsobrevivientes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ingreso" type="tns:mo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="mo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="sizex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sizey" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="primero" type="tns:nivel" />
+          <s:element minOccurs="1" maxOccurs="1" name="variante" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="tiempo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="user1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="user2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="naves" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="nivel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="horizontal" type="tns:coord" />
+          <s:element minOccurs="0" maxOccurs="1" name="vertical" type="tns:coord" />
+          <s:element minOccurs="1" maxOccurs="1" name="val" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sizex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="sizey" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sup" type="tns:nivel" />
+          <s:element minOccurs="0" maxOccurs="1" name="inf" type="tns:nivel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="coord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="primero" type="tns:pos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="pos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="val" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="primero" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="siguiente" type="tns:pos" />
+          <s:element minOccurs="0" maxOccurs="1" name="anterior" type="tns:pos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="unit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mov" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rmin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rmax" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="hp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="atk" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="existe" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="izq" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="der" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="arriba" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="abajo" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="sup" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="inf" type="tns:unit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="finalsobrevivientesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="finalsobrevivientesResult" type="tns:mo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="finalsobrevivientesSoapIn">
+    <wsdl:part name="parameters" element="tns:finalsobrevivientes" />
+  </wsdl:message>
+  <wsdl:message name="finalsobrevivientesSoapOut">
+    <wsdl:part name="parameters" element="tns:finalsobrevivientesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="tablerofinalSoap">
+    <wsdl:operation name="finalsobrevivientes">
+      <wsdl:input message="tns:finalsobrevivientesSoapIn" />
+      <wsdl:output message="tns:finalsobrevivientesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tablerofinalSoap" type="tns:tablerofinalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="finalsobrevivientes">
+      <soap:operation soapAction="http://tempuri.org/finalsobrevivientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tablerofinalSoap12" type="tns:tablerofinalSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="finalsobrevivientes">
+      <soap12:operation soapAction="http://tempuri.org/finalsobrevivientes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tablerofinal">
+    <wsdl:port name="tablerofinalSoap" binding="tns:tablerofinalSoap">
+      <soap:address location="http://localhost:54818/Services/tablerofinal.asmx" />
+    </wsdl:port>
+    <wsdl:port name="tablerofinalSoap12" binding="tns:tablerofinalSoap12">
+      <soap12:address location="http://localhost:54818/Services/tablerofinal.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

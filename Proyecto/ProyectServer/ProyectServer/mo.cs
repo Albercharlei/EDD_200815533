@@ -66,12 +66,13 @@ namespace ProyectServer
             return temp.buscar(x_, y_);
         }
 
-        public void insertar(String col_, int fila, String id, String user_)
+        public void insertar(String col_, int fila, String id, String user_, int existe_)
         {
             char[] array = col_.ToCharArray();
             int col = char.ToUpper(array[0]) - 64;//convertir a valor numérico
             unit nuevo = new unit(id, col, fila);
             nuevo.user = user_;
+            nuevo.existe = existe_;
             nivel insert = buscarnivel(nuevo.nivel);
             if(insert != null)
             {

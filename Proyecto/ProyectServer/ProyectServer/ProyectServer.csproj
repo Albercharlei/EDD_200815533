@@ -87,6 +87,13 @@
     <Content Include="Connected Services\actualizaruser\ProyectServer.actualizaruser.usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\tabfinal\ProyectServer.tabfinal.finalsobrevivientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\tabfinal\ProyectServer.tabfinal.mo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\tabfinal\tablerofinal.wsdl" />
     <None Include="Connected Services\usergraph\graficarusuarios.disco" />
     <None Include="Connected Services\usergraph\configuration91.svcinfo" />
     <None Include="Connected Services\usergraph\configuration.svcinfo" />
@@ -94,6 +101,13 @@
     <None Include="Connected Services\actualizaruser\configuration91.svcinfo" />
     <None Include="Connected Services\actualizaruser\configuration.svcinfo" />
     <None Include="Connected Services\actualizaruser\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\tabfinal\tablerofinal.disco" />
+    <None Include="Connected Services\tabfinal\configuration91.svcinfo" />
+    <None Include="Connected Services\tabfinal\configuration.svcinfo" />
+    <None Include="Connected Services\tabfinal\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -106,7 +120,8 @@
     </None>
     <Content Include="master\masterjuegos\subirarchivos.aspx" />
     <Content Include="master\masterjuegos\showtablero.aspx" />
-    <Content Include="master\masterjuegos\showtablerofinal.aspx" />
+    <Content Include="master\masterjuegos\showsobrevivientes.aspx" />
+    <Content Include="master\masterjuegos\showdestruidos.aspx" />
     <Content Include="master\masterusers\cargarjugadores.aspx" />
     <Content Include="master\masterusers\showespejo.aspx" />
     <Content Include="Services\graficartablero.asmx" />
@@ -143,10 +158,16 @@
     <Content Include="Services\mainlogin.asmx" />
     <Content Include="master\loginmaster.aspx" />
     <Content Include="master\masterusers\addusers.aspx" />
+    <Content Include="Services\tablerofinal.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connected Services\actualizaruser\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\tabfinal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -179,12 +200,19 @@
     <Compile Include="master\masterjuegos\showtablero.aspx.designer.cs">
       <DependentUpon>showtablero.aspx</DependentUpon>
     </Compile>
-    <Compile Include="master\masterjuegos\showtablerofinal.aspx.cs">
-      <DependentUpon>showtablerofinal.aspx</DependentUpon>
+    <Compile Include="master\masterjuegos\showsobrevivientes.aspx.cs">
+      <DependentUpon>showsobrevivientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="master\masterjuegos\showtablerofinal.aspx.designer.cs">
-      <DependentUpon>showtablerofinal.aspx</DependentUpon>
+    <Compile Include="master\masterjuegos\showsobrevivientes.aspx.designer.cs">
+      <DependentUpon>showsobrevivientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterjuegos\showdestruidos.aspx.cs">
+      <DependentUpon>showdestruidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\showdestruidos.aspx.designer.cs">
+      <DependentUpon>showdestruidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="master\masterusers\masterusers.Master.cs">
       <DependentUpon>masterusers.Master</DependentUpon>
@@ -275,6 +303,10 @@
     </Compile>
     <Compile Include="mo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\tablerofinal.asmx.cs">
+      <DependentUpon>tablerofinal.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="unit.cs" />
     <Compile Include="usuario.cs" />
   </ItemGroup>
@@ -288,6 +320,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\accionlogin\" />
     <WCFMetadataStorage Include="Connected Services\actualizaruser\" />
+    <WCFMetadataStorage Include="Connected Services\tabfinal\" />
     <WCFMetadataStorage Include="Connected Services\usergraph\" />
   </ItemGroup>
   <PropertyGroup>
