@@ -1,0 +1,21 @@
+Digraph nivel1{
+Rankdir=TD
+node [shape =rectangle]{rank=min;Pos1x [label="Pos1x"];
+Pos20x [label="Pos20x"]};
+Pos1x -> Pos20x;
+Pos20x -> Pos1x;
+{rank=same;Pos8y [label="Pos8y"];UnitSubmarino418 [label="Unidad: Submarino4
+Hp: 10
+Ataque: 2
+Movimiento: 5"]};
+{rank=same;Pos10y [label="Pos10y"];UnitSubmarino32010 [label="Unidad: Submarino3
+Hp: 10
+Ataque: 2
+Movimiento: 5"]};
+Pos1x -> UnitSubmarino418;
+Pos20x -> UnitSubmarino32010;
+Pos8y -> Pos10y;
+Pos10y -> Pos8y;
+Pos8y -> UnitSubmarino418;
+Pos10y -> UnitSubmarino32010;
+}
