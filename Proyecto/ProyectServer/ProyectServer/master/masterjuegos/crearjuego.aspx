@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="showsobrevivientes.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="crearjuego.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Titleplaceholder" runat="server">
@@ -26,15 +26,37 @@
     </asp:Menu>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <asp:Label runat="server" Text="Nivel 1" Font-Size="14" />
-    <asp:Image ID="lvl1" runat="server" />
+    <asp:Table runat="server">
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Jugador 1: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbjugador1"></asp:TextBox></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Jugador 2: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbjugador2"></asp:TextBox></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Tamaño de columnas: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbx"></asp:TextBox></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Tamaño de filas: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tby"></asp:TextBox></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Tipo: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:DropDownList runat="server" ID="ddlvariante">
+                <asp:ListItem runat="server" Text="Normal" Value="1" />
+                <asp:ListItem runat="server" Text="Tiempo" Value="2" />
+                <asp:ListItem runat="server" Text="Base" Value="3" />
+                                          </asp:DropDownList></asp:TextBox></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Tiempo: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbtiempo"></asp:TextBox></asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+    <asp:Button runat="server" ID="btncrear" Text="Crear juego con los parámetros ingresados" OnClick="crearjuego" />
     <div />
-    <asp:Label runat="server" Text="Nivel 2" Font-Size="14" />
-    <asp:Image ID="lvl2" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 3" Font-Size="14" />
-    <asp:Image ID="lvl3" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 4" Font-Size="14" />
-    <asp:Image ID="lvl4" runat="server" />
+    <asp:Label runat="server" ID="labelmensaje" />
 </asp:Content>

@@ -122,6 +122,8 @@
     <Content Include="master\masterjuegos\showtablero.aspx" />
     <Content Include="master\masterjuegos\showsobrevivientes.aspx" />
     <Content Include="master\masterjuegos\showdestruidos.aspx" />
+    <Content Include="master\masterjuegos\crearjuego.aspx" />
+    <Content Include="master\masterjuegos\agregarunidades.aspx" />
     <Content Include="master\masterusers\cargarjugadores.aspx" />
     <Content Include="master\masterusers\showespejo.aspx" />
     <Content Include="Services\graficartablero.asmx" />
@@ -213,6 +215,20 @@
     </Compile>
     <Compile Include="master\masterjuegos\showdestruidos.aspx.designer.cs">
       <DependentUpon>showdestruidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterjuegos\crearjuego.aspx.cs">
+      <DependentUpon>crearjuego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\crearjuego.aspx.designer.cs">
+      <DependentUpon>crearjuego.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterjuegos\agregarunidades.aspx.cs">
+      <DependentUpon>agregarunidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\agregarunidades.aspx.designer.cs">
+      <DependentUpon>agregarunidades.aspx</DependentUpon>
     </Compile>
     <Compile Include="master\masterusers\masterusers.Master.cs">
       <DependentUpon>masterusers.Master</DependentUpon>

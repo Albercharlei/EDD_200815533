@@ -1,10 +1,21 @@
 Digraph nivel4{
 Rankdir=TD
-node [shape =rectangle]{rank=min;Pos2x [label="Pos2x"]};
+node [shape =rectangle]{rank=min;Pos1x [label="Pos1x"];
+Pos2x [label="Pos2x"]};
+Pos1x -> Pos2x;
+Pos2x -> Pos1x;
+{rank=same;Pos1y [label="Pos1y"];UnitNeosatelite111 [label="Unidad: Neosatelite1
+Hp: 10
+Ataque: 2
+Movimiento: 6"]};
 {rank=same;Pos10y [label="Pos10y"];UnitNeosatelite2210 [label="Unidad: Neosatelite2
 Hp: 10
 Ataque: 2
 Movimiento: 6"]};
+Pos1x -> UnitNeosatelite111;
 Pos2x -> UnitNeosatelite2210;
+Pos1y -> Pos10y;
+Pos10y -> Pos1y;
+Pos1y -> UnitNeosatelite111;
 Pos10y -> UnitNeosatelite2210;
 }

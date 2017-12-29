@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="showsobrevivientes.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="agregarunidades.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm6" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Titleplaceholder" runat="server">
@@ -26,15 +26,41 @@
     </asp:Menu>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <asp:Label runat="server" Text="Nivel 1" Font-Size="14" />
-    <asp:Image ID="lvl1" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 2" Font-Size="14" />
-    <asp:Image ID="lvl2" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 3" Font-Size="14" />
-    <asp:Image ID="lvl3" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 4" Font-Size="14" />
-    <asp:Image ID="lvl4" runat="server" />
+    <asp:Table runat="server">
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Jugador: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:DropDownList runat="server" ID="ddluser"/></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Columna: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbcolumna" /></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Fila: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:TextBox runat="server" ID="tbfila" /></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Tipo: </asp:TableCell>
+            <asp:TableCell runat="server">
+                <asp:DropDownList runat="server" ID="ddltipo">
+                    <asp:ListItem runat="server" Text="Satélite" Value="Satelite" />
+                    <asp:ListItem runat="server" Text="Bombardero" Value="Bombardero" />
+                    <asp:ListItem runat="server" Text="Caza" Value="Caza" />
+                    <asp:ListItem runat="server" Text="Helicóptero" Value="Helicoptero" />
+                    <asp:ListItem runat="server" Text="Fragata" Value="Fragata" />
+                    <asp:ListItem runat="server" Text="Crucero" Value="Crucero" />
+                    <asp:ListItem runat="server" Text="Submarino" Value="Submarino" />
+                </asp:DropDownList>
+                <asp:Label runat="server" Text="Número: " /> <asp:TextBox runat="server" ID="tbno" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Destruido: </asp:TableCell>
+            <asp:TableCell runat="server"><asp:DropDownList runat="server" ID="ddldestruido">
+                <asp:ListItem runat="server" id="si" Text="Si" Value="0" /><asp:ListItem runat="server" id="no" Text="No" Value="1" />
+                                          </asp:DropDownList></asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+    <asp:Button runat="server" ID="btninsertar" Text="Cargar unidad al tablero" OnClick="insertar" />
+    <asp:Label runat="server" ID="labelmensaje" />
 </asp:Content>

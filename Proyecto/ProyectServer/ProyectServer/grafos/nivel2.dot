@@ -1,3 +1,32 @@
 Digraph nivel2{
 Rankdir=TD
-node [shape =rectangle]}
+node [shape =rectangle]{rank=min;Pos5x [label="Pos5x"];
+Pos6x [label="Pos6x"];
+Pos7x [label="Pos7x"]};
+Pos5x -> Pos6x;
+Pos6x -> Pos5x;
+Pos6x -> Pos7x;
+Pos7x -> Pos6x;
+{rank=same;Pos2y [label="Pos2y"];UnitFragata262 [label="Unidad: Fragata2
+Hp: 10
+Ataque: 3
+Movimiento: 5"]};
+{rank=same;Pos5y [label="Pos5y"];UnitFragata375 [label="Unidad: Fragata3
+Hp: 10
+Ataque: 3
+Movimiento: 5"]};
+{rank=same;Pos8y [label="Pos8y"];UnitFragata158 [label="Unidad: Fragata1
+Hp: 10
+Ataque: 3
+Movimiento: 5"]};
+Pos5x -> UnitFragata158;
+Pos6x -> UnitFragata262;
+Pos7x -> UnitFragata375;
+Pos2y -> Pos5y;
+Pos5y -> Pos2y;
+Pos5y -> Pos8y;
+Pos8y -> Pos5y;
+Pos2y -> UnitFragata262;
+Pos5y -> UnitFragata375;
+Pos8y -> UnitFragata158;
+}

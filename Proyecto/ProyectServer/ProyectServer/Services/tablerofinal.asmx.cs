@@ -26,22 +26,26 @@ namespace ProyectServer
             //recorrer niveles
             while(templvl != null)
             {
-                pos tempx = templvl.horizontal.primero;
-                //recorrer columnas
-                while(tempx != null)
+                if(templvl.horizontal != null)
                 {
-                    unit temp = tempx.primero;
-                    while(temp != null)
-                    {//insertar si aun existe en el tablero
-                        if (temp.existe == 1)
-                        {
-                            String columna = ((char)(temp.x + 64)).ToString();//convertir coordenada a char y luego a string
-                            ret.insertar(columna, temp.y, temp.id, temp.user, temp.existe);
+                    pos tempx = templvl.horizontal.primero;
+                    //recorrer columnas
+                    while (tempx != null)
+                    {
+                        unit temp = tempx.primero;
+                        while (temp != null)
+                        {//insertar si aun existe en el tablero
+                            if (temp.existe == 1)
+                            {
+                                String columna = ((char)(temp.x + 64)).ToString();//convertir coordenada a char y luego a string
+                                ret.insertar(columna, temp.y, temp.id, temp.user, temp.existe);
+                            }
+                            temp = temp.abajo;
                         }
-                        temp = temp.abajo;
+                        tempx = tempx.siguiente;
                     }
-                    tempx = tempx.siguiente;
                 }
+                
                 templvl = templvl.sup;
             }
             return ret;
@@ -56,22 +60,26 @@ namespace ProyectServer
             //recorrer niveles
             while (templvl != null)
             {
-                pos tempx = templvl.horizontal.primero;
-                //recorrer columnas
-                while (tempx != null)
+                if(templvl.horizontal != null)
                 {
-                    unit temp = tempx.primero;
-                    while (temp != null)
-                    {//insertar si aun existe en el tablero
-                        if (temp.existe == 0)
-                        {
-                            String columna = ((char)(temp.x + 64)).ToString();//convertir coordenada a char y luego a string
-                            ret.insertar(columna, temp.y, temp.id, temp.user, temp.existe);
+                    pos tempx = templvl.horizontal.primero;
+                    //recorrer columnas
+                    while (tempx != null)
+                    {
+                        unit temp = tempx.primero;
+                        while (temp != null)
+                        {//insertar si aun existe en el tablero
+                            if (temp.existe == 0)
+                            {
+                                String columna = ((char)(temp.x + 64)).ToString();//convertir coordenada a char y luego a string
+                                ret.insertar(columna, temp.y, temp.id, temp.user, temp.existe);
+                            }
+                            temp = temp.abajo;
                         }
-                        temp = temp.abajo;
+                        tempx = tempx.siguiente;
                     }
-                    tempx = tempx.siguiente;
                 }
+                
                 templvl = templvl.sup;
             }
             return ret;
