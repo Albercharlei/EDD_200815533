@@ -16,6 +16,8 @@ namespace ProyectServer
         public int rmax;
         public int hp;
         public int atk;
+        public String user;
+        public int existe;//indica si existe o no en el tablero
 
         public unit izq;
         public unit der;
@@ -33,7 +35,7 @@ namespace ProyectServer
             id = id_;
             x = x_;
             y = y_;
-            if (id_.Equals("Neosatelite"))
+            if (id_.Contains("Neosatelite"))
             {
                 nivel = 4;
                 mov = 6;
@@ -42,7 +44,7 @@ namespace ProyectServer
                 hp = 10;
                 atk = 2;
             }
-            else if (id_.Equals("Bombardero"))
+            else if (id_.Contains("Bombardero"))
             {
                 nivel = 3;
                 mov = 7;
@@ -51,7 +53,7 @@ namespace ProyectServer
                 hp = 10;
                 atk = 5;
             }
-            else if (id_.Equals("Caza"))
+            else if (id_.Contains("Caza"))
             {
                 nivel = 3;
                 mov = 9;
@@ -60,7 +62,7 @@ namespace ProyectServer
                 hp = 20;
                 atk = 2;
             }
-            else if (id_.Equals("Helicóptero"))
+            else if (id_.Contains("Helicoptero"))
             {
                 nivel = 3;
                 mov = 9;
@@ -69,7 +71,7 @@ namespace ProyectServer
                 hp = 15;
                 atk = 3;
             }
-            else if (id_.Equals("Fragata"))
+            else if (id_.Contains("Fragata"))
             {
                 nivel = 2;
                 mov = 5;
@@ -78,7 +80,7 @@ namespace ProyectServer
                 hp = 10;
                 atk = 3;
             }
-            else if (id_.Equals("Crucero"))
+            else if (id_.Contains("Crucero"))
             {
                 nivel = 2;
                 mov = 6;
@@ -87,7 +89,7 @@ namespace ProyectServer
                 hp = 15;
                 atk = 3;
             }
-            else if (id_.Equals("Submarino"))
+            else if (id_.Contains("Submarino"))
             {
                 nivel = 1;
                 mov = 5;

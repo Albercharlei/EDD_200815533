@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/admin.Master" AutoEventWireup="true" CodeBehind="masterini.aspx.cs" Inherits="ProyectServer.master.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="showtablerofinal.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Titleplaceholder" runat="server">
-    <asp:Label Text="Bienvenido al sistema, seleccione una opción del menú lateral" runat="server"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Menuplaceholder" runat="server">
     <asp:Menu ID="Menu1" runat="server">

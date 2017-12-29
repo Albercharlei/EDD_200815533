@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/admin.Master" AutoEventWireup="true" CodeBehind="masterini.aspx.cs" Inherits="ProyectServer.master.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="showtablero.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Titleplaceholder" runat="server">
-    <asp:Label Text="Bienvenido al sistema, seleccione una opción del menú lateral" runat="server"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Menuplaceholder" runat="server">
     <asp:Menu ID="Menu1" runat="server">
@@ -24,4 +23,15 @@
     </asp:Menu>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
+    <asp:Label runat="server" Text="Nivel 1" Font-Size="14" />
+    <asp:Image ID="lvl1" runat="server" />
+    <div />
+    <asp:Label runat="server" Text="Nivel 2" Font-Size="14" />
+    <asp:Image ID="lvl2" runat="server" />
+    <div />
+    <asp:Label runat="server" Text="Nivel 3" Font-Size="14" />
+    <asp:Image ID="lvl3" runat="server" />
+    <div />
+    <asp:Label runat="server" Text="Nivel 4" Font-Size="14" />
+    <asp:Image ID="lvl4" runat="server" />
 </asp:Content>

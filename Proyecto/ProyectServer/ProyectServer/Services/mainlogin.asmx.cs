@@ -33,12 +33,12 @@ namespace ProyectServer
         public binario prueba()
         {
             binario prueba = new binario();
-            prueba.insertar("user3", "pass3", prueba.raiz);
-            prueba.insertar("user5", "pass5", prueba.raiz);
-            prueba.insertar("user1", "pass1", prueba.raiz);
-            prueba.insertar("user2", "pass2", prueba.raiz);
+            prueba.insertar("user3", "pass3", "email3", 0, prueba.raiz);
+            prueba.insertar("user5", "pass5", "email5", 0, prueba.raiz);
+            prueba.insertar("user1", "pass1", "email1", 0, prueba.raiz);
+            prueba.insertar("user2", "pass2", "email2", 0, prueba.raiz);
             
-            prueba.insertar("user4", "pass4", prueba.raiz);
+            prueba.insertar("user4", "pass4", "email4", 0, prueba.raiz);
 
             usuario buscar1 = prueba.buscar("user1", prueba.raiz);
             buscar1.setnick("user1modificado");
@@ -46,7 +46,7 @@ namespace ProyectServer
 
             buscar1 = buscar2;
             buscar1.setnick("user5modificado");
-            prueba.insertar("user4", "pass4", prueba.raiz);
+            prueba.insertar("user4", "pass4", "email4", 0, prueba.raiz);
             //utilizar graficador
             graficarusuarios ugraph = new graficarusuarios();
             ugraph.graficar(prueba);

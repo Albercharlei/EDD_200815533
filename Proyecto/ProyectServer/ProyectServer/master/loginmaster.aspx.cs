@@ -13,13 +13,15 @@ namespace ProyectServer.master
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //cerrar sesión al cargar la página
+            logout();
             if (Application["arbolusuarios"] == null)
             {
                 binario arbolusuarios = new binario();
                 Application["arbolusuarios"] = arbolusuarios;
             }
             wslogin = new mainlogin();
-            Application["arbolusuarios"] = wslogin.prueba();
+            //Application["arbolusuarios"] = wslogin.prueba();
         }
 
         protected void click(object sender, EventArgs e)
@@ -31,6 +33,14 @@ namespace ProyectServer.master
             {
                 Session["Admin"] = id_;
                 Response.Redirect("~/master/masterini.aspx");
+            }
+        }
+        //cerrar sesion
+        public void logout()
+        {
+            if (Session["Admin"] != null)
+            {
+                Session["Admin"] = null;
             }
         }
     }

@@ -72,7 +72,11 @@ namespace ProyectServer
         {
             pos nuevo = new pos(val_);
             pos temp = primero;
-            if (temp == null) primero = nuevo;
+            if (temp == null)
+            {
+                primero = nuevo;
+                return nuevo;
+            }
 
             else
             {
@@ -99,6 +103,9 @@ namespace ProyectServer
                         }
                         else temp = temp.siguiente;
                     }
+                    temp.siguiente = nuevo;
+                    nuevo.anterior = temp;
+                    return nuevo;
                 }
 
             }

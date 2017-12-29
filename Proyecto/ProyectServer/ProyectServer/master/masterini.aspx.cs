@@ -20,5 +20,6 @@ namespace ProyectServer.master
                 Response.Redirect("~/master/loginmaster.aspx");
             }
         }
+        
     }
 }

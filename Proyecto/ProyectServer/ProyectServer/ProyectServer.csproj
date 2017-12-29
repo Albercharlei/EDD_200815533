@@ -104,10 +104,14 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="master\masterjuegos\subirarchivos.aspx" />
+    <Content Include="master\masterjuegos\showtablero.aspx" />
+    <Content Include="master\masterjuegos\showtablerofinal.aspx" />
+    <Content Include="master\masterusers\cargarjugadores.aspx" />
+    <Content Include="master\masterusers\showespejo.aspx" />
     <Content Include="Services\graficartablero.asmx" />
-    <Content Include="master\juego.aspx" />
-    <Content Include="master\updateusers.aspx" />
-    <Content Include="master\showusers.aspx" />
+    <Content Include="master\masterusers\updateusers.aspx" />
+    <Content Include="master\masterusers\showusers.aspx" />
     <Content Include="master\masterini.aspx" />
     <Content Include="Services\actualizarusuarios.asmx" />
     <Content Include="Services\graficarusuarios.asmx" />
@@ -117,6 +121,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\usergraph\graficarusuarios.wsdl" />
+    <Content Include="master\masterusers\masterusers.Master" />
+    <Content Include="master\masterjuegos\masterpartidas.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -136,7 +142,7 @@
     <Content Include="Global.asax" />
     <Content Include="Services\mainlogin.asmx" />
     <Content Include="master\loginmaster.aspx" />
-    <Content Include="master\addusers.aspx" />
+    <Content Include="master\masterusers\addusers.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -151,29 +157,72 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="coord.cs" />
+    <Compile Include="listajuegos.cs" />
+    <Compile Include="master\masterjuegos\masterpartidas.Master.cs">
+      <DependentUpon>masterpartidas.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\masterpartidas.Master.designer.cs">
+      <DependentUpon>masterpartidas.Master</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterjuegos\subirarchivos.aspx.cs">
+      <DependentUpon>subirarchivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\subirarchivos.aspx.designer.cs">
+      <DependentUpon>subirarchivos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterjuegos\showtablero.aspx.cs">
+      <DependentUpon>showtablero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\showtablero.aspx.designer.cs">
+      <DependentUpon>showtablero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterjuegos\showtablerofinal.aspx.cs">
+      <DependentUpon>showtablerofinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\showtablerofinal.aspx.designer.cs">
+      <DependentUpon>showtablerofinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterusers\masterusers.Master.cs">
+      <DependentUpon>masterusers.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterusers\masterusers.Master.designer.cs">
+      <DependentUpon>masterusers.Master</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterusers\cargarjugadores.aspx.cs">
+      <DependentUpon>cargarjugadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterusers\cargarjugadores.aspx.designer.cs">
+      <DependentUpon>cargarjugadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterusers\showespejo.aspx.cs">
+      <DependentUpon>showespejo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterusers\showespejo.aspx.designer.cs">
+      <DependentUpon>showespejo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Services\graficartablero.asmx.cs">
       <DependentUpon>graficartablero.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="master\juego.aspx.cs">
-      <DependentUpon>juego.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="master\juego.aspx.designer.cs">
-      <DependentUpon>juego.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="master\updateusers.aspx.cs">
+    <Compile Include="master\masterusers\updateusers.aspx.cs">
       <DependentUpon>updateusers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="master\updateusers.aspx.designer.cs">
+    <Compile Include="master\masterusers\updateusers.aspx.designer.cs">
       <DependentUpon>updateusers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="master\showusers.aspx.cs">
+    <Compile Include="master\masterusers\showusers.aspx.cs">
       <DependentUpon>showusers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="master\showusers.aspx.designer.cs">
+    <Compile Include="master\masterusers\showusers.aspx.designer.cs">
       <DependentUpon>showusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="master\masterini.aspx.cs">
@@ -217,11 +266,11 @@
     <Compile Include="master\loginmaster.aspx.designer.cs">
       <DependentUpon>loginmaster.aspx</DependentUpon>
     </Compile>
-    <Compile Include="master\addusers.aspx.cs">
+    <Compile Include="master\masterusers\addusers.aspx.cs">
       <DependentUpon>addusers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="master\addusers.aspx.designer.cs">
+    <Compile Include="master\masterusers\addusers.aspx.designer.cs">
       <DependentUpon>addusers.aspx</DependentUpon>
     </Compile>
     <Compile Include="mo.cs" />

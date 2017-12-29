@@ -5,6 +5,7 @@
     <asp:Label Text="Ingrese los datos de inicio de sesión del administrador" runat="server"/>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Menuplaceholder" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
     <asp:Table runat="server">

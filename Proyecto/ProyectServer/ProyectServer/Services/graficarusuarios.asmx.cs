@@ -37,7 +37,7 @@ namespace ProyectServer
             String salida = "";
             if (user != null)
             {
-                salida += user.getnick() + " [label=\"Usuario: " + user.getnick() + "\"];\n";
+                salida += user.getnick() + " [label=\"Usuario: " + user.getnick() + "\nContraseña: " + user.getpass() + "\nemail: " + user.email + "\"];\n";
                 if (user.izq != null)
                 {
                     salida += usergraph(user.izq);
@@ -48,8 +48,47 @@ namespace ProyectServer
                     salida += usergraph(user.der);
                     salida += user.getnick() + " -> " + user.der.getnick() + ";\n";
                 }
+                salida += listajuegos(user);
             }
             return salida;
+        }
+
+        public String listajuegos(usuario user)
+        {
+            if (user.listado != null)
+            {
+                String salida = "Subgraph lista" + user.getnick() + "{\nnode [shape =rectangle]";
+                juego temp = user.listado.primero;
+                //agregar nodos
+                while (temp != null)
+                {
+                    salida += "lista" + user.getnick() + temp.cont.ToString() + " [label=\"Oponente: " + temp.oponente + "\nUnidades desplegadas: " + temp.desplegadas.ToString();
+                    salida += "\nUnidades sobrevivientes: " + temp.sobrevivientes.ToString() + "\nUnidades destruidas: " + temp.destruidas.ToString();
+                    switch (temp.gano)
+                    {
+                        case 0:
+                            salida += "Resultado: derrota\"];\n";
+                            break;
+                        case 1:
+                            salida += "Resultado: victoria\"];\n";
+                            break;
+                    }
+                    temp = temp.siguiente;
+                }
+                //agregar apuntadores
+                temp = user.listado.primero;
+                salida += user.getnick() + " -> " + "lista" + user.getnick() + temp.cont.ToString() + ";\n";
+                while(temp.siguiente != null)
+                {
+                    salida += "lista" + user.getnick() + temp.cont.ToString() + " -> lista" + user.getnick() + temp.siguiente.cont.ToString() + ";\n";
+                    salida += "lista" + user.getnick() + temp.siguiente.cont.ToString() + " -> lista" + user.getnick() + temp.cont.ToString() + ";\n";
+                    temp = temp.siguiente;
+                }
+                salida += "}\n";
+                return salida;
+            }
+
+            else return null;
         }
 
         public String guardar(String grafo)

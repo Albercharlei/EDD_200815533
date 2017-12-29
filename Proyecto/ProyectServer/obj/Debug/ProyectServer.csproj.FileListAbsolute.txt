@@ -1,9 +1,0 @@
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\bin\ProyectServer.dll.config
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\bin\ProyectServer.dll
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\bin\ProyectServer.pdb
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\obj\Debug\ProyectServer.csproj.CoreCompileInputs.cache
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\obj\Debug\ProyectServer.dll
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\obj\Debug\ProyectServer.pdb
-C:\Users\Carlos Avalos\source\repos\ProyectServer\ProyectServer\obj\Debug\ProyectServer.csprojResolveAssemblyReference.cache

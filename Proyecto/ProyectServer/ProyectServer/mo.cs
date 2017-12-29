@@ -10,28 +10,48 @@ namespace ProyectServer
         public int sizex;//tamaño de coordenadas de x
         public int sizey;//tamaño de coordenadas de y
         public nivel primero;//nivel 1
+        public int variante;//tipo de juego
+        public String tiempo;
+        //variables de juego actual
+        public String user1;
+        public String user2;
+        public int[] naves;//nivel 1,nivel 2,nivel 3,nivel 4
 
         public mo() { }
 
-        public mo(int x,int y)//tamaño de coordenadas de y
+        public mo(int x,int y,int variante_, String tiempo_)//tamaño de coordenadas de y
         {
             sizex = x;
             sizey = y;
+            variante = variante_;
+            tiempo = tiempo_;
             insertnivel();
+            naves = new int[4];
         }
 
         public void insertnivel()
         {
-            if (primero == null) primero = new nivel(1);
+            if (primero == null) primero = new nivel(1, this.sizex, this.sizey);
             int lvl = 2;
             nivel temp = primero;
             while(lvl < 5)
             {
-                temp.sup = new nivel(lvl);
+                temp.sup = new nivel(lvl, this.sizex, this.sizey);
                 temp.sup.inf = temp;
                 lvl++;
                 temp = temp.sup;
             }
+        }
+
+        public nivel buscarnivel(int lvl)
+        {
+            nivel temp = primero;
+            while(temp != null)
+            {
+                if (temp.val == lvl) return temp;
+                else temp = temp.sup;
+            }
+            return null;
         }
 
         public unit buscar(int x_,int y_,int z_)
@@ -45,6 +65,19 @@ namespace ProyectServer
             }
             return temp.buscar(x_, y_);
         }
+
+        public void insertar(String col_, int fila, String id, String user_)
+        {
+            char[] array = col_.ToCharArray();
+            int col = char.ToUpper(array[0]) - 64;//convertir a valor numérico
+            unit nuevo = new unit(id, col, fila);
+            nuevo.user = user_;
+            nivel insert = buscarnivel(nuevo.nivel);
+            if(insert != null)
+            {
+                insert.insertar(nuevo, col, fila);
+            }
+        }
     }
 
     public class nivel
@@ -52,16 +85,20 @@ namespace ProyectServer
         public coord horizontal;//listado de posiciones en x
         public coord vertical;//listado de posiciones en y
         public int val;
+        public int sizex;
+        public int sizey;
         public nivel sup;
         public nivel inf;
 
         public nivel() {}
 
-        public nivel(int val_)
+        public nivel(int val_, int sizex_, int sizey_)
         {
             horizontal = null;
             vertical = null;
             val = val_;
+            sizex = sizex_;
+            sizey = sizey_;
             sup = null;
             inf = null;
         }
@@ -81,6 +118,9 @@ namespace ProyectServer
         //insertar una unidad en el nivel
         public void insertar(unit nuevo,int x,int y)
         {
+            //no realizar acciones si las coordenadas están afuera del tamaño del tablero
+            if (x > this.sizex) return;
+            if (y > this.sizey) return;
             if (horizontal == null) horizontal = new coord();
             if (vertical == null) vertical = new coord();
             //insertar en las coordenadas en x

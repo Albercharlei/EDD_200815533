@@ -60,7 +60,7 @@ namespace ProyectServer
                 while(temp != null)
                 {
                     dotgraph += ";Unit" + temp.id + temp.x.ToString() + temp.y.ToString();
-                    dotgraph += "x [label=\"Unidad: " + temp.id + "\nHp: " + temp.hp.ToString()+"\nAtaque: "+temp.atk.ToString() + "\nMovimiento: "+temp.mov.ToString()+"\"]";
+                    dotgraph += " [label=\"Unidad: " + temp.id + "\nHp: " + temp.hp.ToString()+"\nAtaque: "+temp.atk.ToString() + "\nMovimiento: "+temp.mov.ToString()+"\"]";
                     temp = temp.der;
                 }
                 dotgraph += "};\n"; 
@@ -86,7 +86,7 @@ namespace ProyectServer
             {
                 dotgraph += "Pos" + tempy.val.ToString() + "y -> " + "Pos" + tempy.siguiente.val.ToString() + "y;\n";
                 dotgraph += "Pos" + tempy.siguiente.val.ToString() + "y -> " + "Pos" + tempy.val.ToString() + "y;\n";
-                tempx = tempx.siguiente;
+                tempy = tempy.siguiente;
             }
             //agregar apuntadores horizontales
             tempy = ingreso.vertical.primero;
@@ -100,7 +100,7 @@ namespace ProyectServer
                     dotgraph += "Unit" + temp.der.id + temp.der.x.ToString() + temp.der.y.ToString() + " -> " + "Unit" + temp.id + temp.x.ToString() + temp.y.ToString() + ";\n";
                     temp = temp.der;
                 }
-                tempx = tempy.siguiente;
+                tempy = tempy.siguiente;
             }
             //terminar grafo
             dotgraph += "}\n";

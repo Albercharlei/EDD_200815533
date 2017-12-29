@@ -18,12 +18,12 @@ namespace ProyectServer
     {
 
         [WebMethod]
-        public binario actualizar(usuario user_, String nick_, String pass_,binario bin_)
+        public binario actualizar(usuario user_, String nick_, String pass_, String email_, int conectado_,binario bin_)
         {
             //user_.setnick(nick_);
             //user_.setpass(pass_);
             bin_.eliminar(user_.getnick());
-            bin_.insertar(nick_, pass_, bin_.raiz);
+            bin_.insertar(nick_, pass_, email_, conectado_, bin_.raiz);
             return bin_;
         }
 
@@ -34,9 +34,9 @@ namespace ProyectServer
         }
 
         [WebMethod]
-        public binario insertar(binario bin_, String nick_, String pass_)
+        public binario insertar(binario bin_, String nick_, String email_, int conectado_, String pass_)
         {
-            bin_.insertar(nick_, pass_, null);
+            bin_.insertar(nick_, pass_, email_, conectado_, null);
             return bin_;
         }
 

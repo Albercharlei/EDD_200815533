@@ -9,6 +9,9 @@ namespace ProyectServer
     {
         private String nick;
         private String pass;
+        public String email;
+        public int conectado;
+        public listajuegos listado;
 
         public usuario raiz;
         public usuario izq;
@@ -16,10 +19,13 @@ namespace ProyectServer
 
         public usuario() { }
 
-        public usuario(String nick_, String pass_)
+        public usuario(String nick_, String pass_, String email_, int conectado_)
         {
             nick = nick_;
             pass = pass_;
+            email = email_;
+            conectado = conectado_;
+            listado = null;
             raiz = null;
             izq = null;
             der = null;
@@ -32,6 +38,12 @@ namespace ProyectServer
         public void setpass(String pass_) { pass = pass_; }
 
         public String getpass() { return pass; }
+
+        public void insertarjuego(String oponente_, int desplegadas_, int sobrevivientes_, int destruidas_, int gano_)
+        {
+            if (listado == null) listado = new listajuegos();
+            listado.insertar(nick, oponente_, desplegadas_, sobrevivientes_, destruidas_, gano_);
+        }
     }
 
     public class binario
@@ -43,14 +55,14 @@ namespace ProyectServer
             raiz = null;
         }
         //método de inserción en el árbol binario
-        public void insertar(String nick_, String pass_, usuario r)
+        public void insertar(String nick_, String pass_, String email_, int conectado_, usuario r)
         {
             //insertar desde la raiz
             if (r == null)
             {
                 //insertar en la raiz
-                if (raiz == null) raiz = new usuario(nick_, pass_);
-                else insertar(nick_, pass_, raiz);
+                if (raiz == null) raiz = new usuario(nick_, pass_, email_,conectado_);
+                else insertar(nick_, pass_, email_, conectado_, raiz);
             }
             else
             {
@@ -60,11 +72,11 @@ namespace ProyectServer
                     //insertar si el nodo es nulo
                     if (r.izq == null)
                     {
-                        r.izq = new usuario(nick_, pass_);
+                        r.izq = new usuario(nick_, pass_, email_, conectado_);
                         r.izq.raiz = r;
                     }
                     //insertar en el arbol izquierdo
-                    else insertar(nick_, pass_, r.izq);
+                    else insertar(nick_, pass_, email_, conectado_, r.izq);
                 }
                 //el nodo va al hijo derecho
                 else if (String.Compare(r.getnick(), nick_) < 0)
@@ -72,11 +84,11 @@ namespace ProyectServer
                     //insertar si el nodo es nulo
                     if (r.der == null)
                     {
-                        r.der = new usuario(nick_, pass_);
+                        r.der = new usuario(nick_, pass_, email_, conectado_);
                         r.der.raiz = r;
                     }
                     //insertar en el arbol izquierdo
-                    else insertar(nick_, pass_, r.der);
+                    else insertar(nick_, pass_, email_, conectado_, r.der);
                 }
             }
         }
@@ -171,6 +183,13 @@ namespace ProyectServer
             }
         }
 
+        //insertar lista de juegos
+        public void insertarjuego(String userbase_, String oponente_, int desplegadas_, int sobrevivientes_, int destruidas_, int gano_)
+        {
+            usuario insert = buscar(userbase_, raiz);
+            insert.insertarjuego(oponente_, desplegadas_, sobrevivientes_, destruidas_, gano_);
+        }
+
         /*public usuario sustituir(usuario u)
         {
             if (u != null)
@@ -232,6 +251,71 @@ namespace ProyectServer
         {
             u.setnick(newnick);
             u.setpass(newpass);
+        }
+        //obtener altura del arbol
+        public int altura(usuario r)
+        {
+            if (r == null) return 0;
+            else
+            {
+                int hizq = altura(r.izq) + 1;
+                int hder = altura(r.der) + 1;
+                if (hizq >= hder) return hizq;
+                else return hder;
+            }
+        }
+        //obtener arbol espejo
+        public usuario espejo(usuario r)
+        {
+            if (r != null)
+            {
+                //copiar nodo
+                usuario ret = new usuario(r.getnick(), r.getpass(), r.email, r.conectado);
+                ret.der = espejo(r.izq);
+                ret.izq = espejo(r.der);
+                return ret;
+            }
+            else return null;
+        }
+        public binario espejo()
+        {
+            binario ret = new binario();
+            ret.raiz = espejo(this.raiz);
+            return ret;
+        }
+        //contador de hojas
+        public int hojas(int cont,usuario r)
+        {
+            if (r != null)
+            {
+                if (r.izq == null && r.der == null) return cont + 1;
+                else
+                {
+                    int contizq = 0;
+                    if (r.izq != null) contizq = hojas(contizq, r.izq);
+                    int contder = 0;
+                    if (r.der != null) contder = hojas(contder, r.der);
+                    return contizq + contder;
+                }
+            }
+            else return 0;
+        }
+        //contador de ramas
+        public int ramas(int cont,usuario r)
+        {
+            if (r != null)
+            {
+                if (r.izq == null && r.der == null) return 0;
+                else
+                {
+                    int contizq = 0;
+                    if (r.izq != null) contizq = ramas(contizq, r.izq);
+                    int contder = 0;
+                    if (r.der != null) contder = ramas(contder, r.der);
+                    return contizq + contder + 1;
+                }
+            }
+            else return 0;
         }
     }
 }
