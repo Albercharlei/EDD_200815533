@@ -24,6 +24,7 @@
                 <asp:MenuItem NavigateUrl="~/master/masterjuegos/showdestruidos.aspx" Text="Mostrar unidades destruídas" Value="Mostrar unidades destruídas"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/master/masterjuegos/subirarchivos.aspx" Text="Cargar archivos" Value="Cargar archivos"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/master/masterjuegos/historial.aspx" Text="Mostrar historial" Value="Mostrar historial"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/master/masterjuegos/reportes.aspx" Text="Reportes de juegos" Value="Reportes de juegos"></asp:MenuItem>
             </asp:MenuItem>
             <asp:MenuItem NavigateUrl="~/master/loginmaster.aspx" Text="Salir del sistema" Value="Salir del sistema"></asp:MenuItem>
         </Items>
@@ -35,7 +36,17 @@
     <asp:Table runat="server" ID="tablaganadas" BorderWidth="1" GridLines="Both"></asp:Table>
     <div></div>
     <div></div>
-    <asp:Label runat="server" Text="Top 10 de jugadores con unidades destruidas" />
+    <asp:Label runat="server" Text="Top 10 de jugadores con el mayor porcentaje de unidades destruidas" />
     <div></div>
     <asp:Table runat="server" ID="tabladestruidas" BorderWidth="1" GridLines="Both"></asp:Table>
+    <div></div>
+    <div></div>
+    <asp:Label runat="server" Text="Top 10 de jugadores con la mayor cantidad de contactos" />
+    <div></div>
+    <asp:Table runat="server" ID="tablacontactos" BorderWidth="1" GridLines="Both"></asp:Table>
+    <div></div>
+    <div></div>
+    <asp:Label runat="server" Text="Top 10 de jugadores con la mayor cantidad de unidades destruidas" />
+    <div></div>
+    <asp:Table runat="server" ID="tablamasdestruidas" BorderWidth="1" GridLines="Both"></asp:Table>
 </asp:Content>

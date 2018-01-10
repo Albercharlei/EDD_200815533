@@ -87,6 +87,10 @@
     <Content Include="Connected Services\actualizaruser\ProyectServer.actualizaruser.usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\graficadorjuegos\graficarlistadejuegos.wsdl" />
+    <Content Include="Connected Services\graficadorjuegos\ProyectServer.graficadorjuegos.graficarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\graficarhistorial\graficarb.wsdl" />
     <None Include="Connected Services\graficarcontactos\graficaravl.disco" />
     <None Include="Connected Services\graficarcontactos\configuration91.svcinfo" />
@@ -94,6 +98,13 @@
     <None Include="Connected Services\graficarhistorial\graficarb.disco" />
     <None Include="Connected Services\graficarhistorial\configuration91.svcinfo" />
     <None Include="Connected Services\graficarhistorial\configuration.svcinfo" />
+    <None Include="Connected Services\graficadorjuegos\graficarlistadejuegos.disco" />
+    <None Include="Connected Services\graficadorjuegos\configuration91.svcinfo" />
+    <None Include="Connected Services\graficadorjuegos\configuration.svcinfo" />
+    <None Include="Connected Services\graficadorjuegos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\graficarhistorial\ProyectServer.graficarhistorial.graficarResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -140,6 +151,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Services\graficarlistadejuegos.asmx" />
+    <Content Include="master\masterjuegos\reportes.aspx" />
     <Content Include="master\masterusers\hash.aspx" />
     <Content Include="master\masterusers\reportes.aspx" />
     <Content Include="Services\graficarb.asmx" />
@@ -202,6 +215,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\graficadorjuegos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\graficarhistorial\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,7 +241,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="coord.cs" />
+    <Compile Include="Services\graficarlistadejuegos.asmx.cs">
+      <DependentUpon>graficarlistadejuegos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="hasht.cs" />
+    <Compile Include="master\masterjuegos\reportes.aspx.cs">
+      <DependentUpon>reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\reportes.aspx.designer.cs">
+      <DependentUpon>reportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="master\masterusers\hash.aspx.cs">
       <DependentUpon>hash.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -454,6 +483,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\accionlogin\" />
     <WCFMetadataStorage Include="Connected Services\actualizaruser\" />
+    <WCFMetadataStorage Include="Connected Services\graficadorjuegos\" />
     <WCFMetadataStorage Include="Connected Services\graficarhistorial\" />
     <WCFMetadataStorage Include="Connected Services\graficarcontactos\" />
     <WCFMetadataStorage Include="Connected Services\tabfinal\" />

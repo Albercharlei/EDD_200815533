@@ -24,6 +24,7 @@
                 <asp:MenuItem NavigateUrl="~/master/masterjuegos/showdestruidos.aspx" Text="Mostrar unidades destruídas" Value="Mostrar unidades destruídas"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/master/masterjuegos/subirarchivos.aspx" Text="Cargar archivos" Value="Cargar archivos"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/master/masterjuegos/historial.aspx" Text="Mostrar historial" Value="Mostrar historial"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/master/masterjuegos/reportes.aspx" Text="Reportes de juegos" Value="Reportes de juegos"></asp:MenuItem>
             </asp:MenuItem>
             <asp:MenuItem NavigateUrl="~/master/loginmaster.aspx" Text="Salir del sistema" Value="Salir del sistema"></asp:MenuItem>
         </Items>
@@ -42,4 +43,31 @@
     </asp:Table>
     <div />
     <asp:Image runat="server" ID="grafo"/>
+    <div>
+
+    </div>
+    <asp:Label runat="server" Text="Agregar un nuevo usuario al sistema" />
+    <asp:Table runat="server">
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Ingrese el nombre: </asp:TableCell>
+            <asp:TableCell runat="server">
+                <asp:TextBox runat="server" ID="tbidnuevo" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Ingrese el correo electrónico: </asp:TableCell>
+            <asp:TableCell runat="server">
+                <asp:TextBox runat="server" ID="tbemail" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server">Ingrese la contraseña: </asp:TableCell><asp:TableCell runat="server">
+                <asp:TextBox runat="server" ID="tbpassnuevo" />
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server"></asp:TableCell><asp:TableCell runat="server">
+                <asp:Button runat="server" Text="Completar el ingreso" ID="btningresar" OnClick="insertar" /></asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
 </asp:Content>

@@ -12,12 +12,16 @@ Contraseña: PDW92QLF0HC
 email: turpis.Aliquam.adipiscing@tincidunt.net"];
 Imre78 -> Asro25;
 Nuevo -> Imre78;
-Stin94 [label="Usuario: Stin94
-Contraseña: WAG95DOM2LZ
-email: in.tempus@a.com"];
 otro [label="Usuario: otro
 Contraseña: 123kjd
 email: correo2@dominio.com"];
-Stin94 -> otro;
-Nuevo -> Stin94;
+nuevocontacto [label="Usuario: nuevocontacto
+Contraseña: password
+email: nuevonuevo"];
+otro -> nuevocontacto;
+Stin94 [label="Usuario: Stin94
+Contraseña: WAG95DOM2LZ
+email: in.tempus@a.com"];
+otro -> Stin94;
+Nuevo -> otro;
 }

@@ -15,6 +15,7 @@ namespace ProyectServer
         public avl contactos;
         public int ganados;
         public double porcentaje;
+        public int destruidos;
 
         public usuario raiz;
         public usuario izq;
@@ -30,8 +31,9 @@ namespace ProyectServer
             conectado = conectado_;
             ganados = 0;
             porcentaje = 0;
+            destruidos = 0;
             listado = null;
-            contactos = null;
+            contactos = new avl();
             raiz = null;
             izq = null;
             der = null;
@@ -54,6 +56,8 @@ namespace ProyectServer
             //actualizar porcentaje
             double porcentajenuevo = (double)nuevo.destruidas / (double)nuevo.desplegadas;
             if (porcentajenuevo > porcentaje) porcentaje = porcentajenuevo;
+
+            destruidos += nuevo.destruidas;
         }
         //inserción en el nodo de contacto, el usuario a insertar ha sido previamente buscado o insertado
         public void insertarcontacto(usuario insert)

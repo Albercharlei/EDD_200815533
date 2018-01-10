@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="showsobrevivientes.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master/masterjuegos/masterpartidas.Master" AutoEventWireup="true" CodeBehind="reportes.aspx.cs" Inherits="ProyectServer.master.masterjuegos.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Titleplaceholder" runat="server">
@@ -31,15 +31,11 @@
     </asp:Menu>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Content" runat="server">
-    <asp:Label runat="server" Text="Nivel 1" Font-Size="14" />
-    <asp:Image ID="lvl1" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 2" Font-Size="14" />
-    <asp:Image ID="lvl2" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 3" Font-Size="14" />
-    <asp:Image ID="lvl3" runat="server" />
-    <div />
-    <asp:Label runat="server" Text="Nivel 4" Font-Size="14" />
-    <asp:Image ID="lvl4" runat="server" />
+    <!--<asp:DropDownList runat="server" ID="ddljuegos"></asp:DropDownList>
+    <div></div>
+    <asp:Label runat="server" Text="Top 10 de juegos con más ataques"></asp:Label>
+    <asp:Table runat="server" ID="masataques"></asp:Table>
+    <asp:Label runat="server" Text="Top 10 de juegos con menos ataques"></asp:Label>
+    <asp:Table runat="server" ID="menosataques"></asp:Table>-->
+    <asp:Image runat="server" ID="grafojuegos" />
 </asp:Content>

@@ -144,6 +144,63 @@ namespace ProyectServer
                         nuevo.anterior = temp;
                     }
                 }
+                else if (tipo == 2)//el tipo de ordenamiento es por cantidad de contactos
+                {//insertar al inicio
+                    if (temp.user.contactos.cont <= nuevo.user.contactos.cont)
+                    {
+                        nuevo.siguiente = temp;
+                        temp.anterior = nuevo;
+                        primero = nuevo;
+                    }
+                    //insertar al medio
+                    else
+                    {
+                        while (temp.siguiente != null)
+                        {
+                            if (temp.siguiente.user.contactos.cont <= nuevo.user.contactos.cont)
+                            {
+                                nuevo.siguiente = temp.siguiente;
+                                nuevo.siguiente.anterior = nuevo;
+                                temp.siguiente = nuevo;
+                                nuevo.anterior = temp;
+                                return;//terminar el proceso
+                            }
+                            else temp = temp.siguiente;
+                        }
+                        //insertar al final
+                        temp.siguiente = nuevo;
+                        nuevo.anterior = temp;
+                    }
+                }
+
+                else if (tipo == 3)//el tipo de ordenamiento es por mayor cantidad de unidades eliminadas
+                {//insertar al inicio
+                    if (temp.user.destruidos <= nuevo.user.destruidos)
+                    {
+                        nuevo.siguiente = temp;
+                        temp.anterior = nuevo;
+                        primero = nuevo;
+                    }
+                    //insertar al medio
+                    else
+                    {
+                        while (temp.siguiente != null)
+                        {
+                            if (temp.siguiente.user.destruidos <= nuevo.user.destruidos)
+                            {
+                                nuevo.siguiente = temp.siguiente;
+                                nuevo.siguiente.anterior = nuevo;
+                                temp.siguiente = nuevo;
+                                nuevo.anterior = temp;
+                                return;//terminar el proceso
+                            }
+                            else temp = temp.siguiente;
+                        }
+                        //insertar al final
+                        temp.siguiente = nuevo;
+                        nuevo.anterior = temp;
+                    }
+                }
             }
         }
     }

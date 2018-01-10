@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectServer.master.masterusers {
+namespace ProyectServer.master.masterjuegos {
     
     
-    public partial class WebForm3 {
+    public partial class WebForm8 {
         
         /// <summary>
         /// Menu1 control.
@@ -22,66 +22,39 @@ namespace ProyectServer.master.masterusers {
         protected global::System.Web.UI.WebControls.Menu Menu1;
         
         /// <summary>
-        /// ddlusuarios control.
+        /// ddljuegos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlusuarios;
+        protected global::System.Web.UI.WebControls.DropDownList ddljuegos;
         
         /// <summary>
-        /// btncargar control.
+        /// masataques control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btncargar;
+        protected global::System.Web.UI.WebControls.Table masataques;
         
         /// <summary>
-        /// grafo control.
+        /// menosataques control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image grafo;
+        protected global::System.Web.UI.WebControls.Table menosataques;
         
         /// <summary>
-        /// tbidnuevo control.
+        /// grafojuegos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbidnuevo;
-        
-        /// <summary>
-        /// tbemail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbemail;
-        
-        /// <summary>
-        /// tbpassnuevo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbpassnuevo;
-        
-        /// <summary>
-        /// btningresar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btningresar;
+        protected global::System.Web.UI.WebControls.Image grafojuegos;
     }
 }

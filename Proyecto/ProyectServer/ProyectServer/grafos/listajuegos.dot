@@ -1,0 +1,130 @@
+Digraph juegos {
+Rankdir=TD
+node [shape =rectangle]
+juego0 [label="Jugador 1: Mord86
+Jugador 2: Stin94
+Unidades desplegadas: 10
+Unidades sobrevivientes: 8
+Unidades destruidas2
+Ganó: No"];
+juego1 [label="Jugador 1: Mord86
+Jugador 2: Asro25
+Unidades desplegadas: 15
+Unidades sobrevivientes: 10
+Unidades destruidas5
+Ganó: No"];
+juego0 -> juego1;
+juego1 -> juego0;
+juego2 [label="Jugador 1: Mord86
+Jugador 2: Imre78
+Unidades desplegadas: 20
+Unidades sobrevivientes: 3
+Unidades destruidas17
+Ganó: Sí"];
+juego1 -> juego2;
+juego2 -> juego1;
+juego3 [label="Jugador 1: Mord86
+Jugador 2: Taon95
+Unidades desplegadas: 16
+Unidades sobrevivientes: 10
+Unidades destruidas6
+Ganó: Sí"];
+juego2 -> juego3;
+juego3 -> juego2;
+juego4 [label="Jugador 1: Mord86
+Jugador 2: Avey48
+Unidades desplegadas: 18
+Unidades sobrevivientes: 8
+Unidades destruidas10
+Ganó: Sí"];
+juego3 -> juego4;
+juego4 -> juego3;
+juego5 [label="Jugador 1: Mord86
+Jugador 2: Kaez42
+Unidades desplegadas: 20
+Unidades sobrevivientes: 10
+Unidades destruidas10
+Ganó: Sí"];
+juego4 -> juego5;
+juego5 -> juego4;
+juego6 [label="Jugador 1: Mord86
+Jugador 2: Idin94
+Unidades desplegadas: 30
+Unidades sobrevivientes: 29
+Unidades destruidas1
+Ganó: No"];
+juego5 -> juego6;
+juego6 -> juego5;
+juego7 [label="Jugador 1: Mord86
+Jugador 2: Jado86
+Unidades desplegadas: 25
+Unidades sobrevivientes: 1
+Unidades destruidas24
+Ganó: Sí"];
+juego6 -> juego7;
+juego7 -> juego6;
+juego8 [label="Jugador 1: Stin94
+Jugador 2: Mord86
+Unidades desplegadas: 21
+Unidades sobrevivientes: 15
+Unidades destruidas6
+Ganó: Sí"];
+juego7 -> juego8;
+juego8 -> juego7;
+juego9 [label="Jugador 1: Stin94
+Jugador 2: Asro25
+Unidades desplegadas: 19
+Unidades sobrevivientes: 14
+Unidades destruidas5
+Ganó: Sí"];
+juego8 -> juego9;
+juego9 -> juego8;
+juego10 [label="Jugador 1: Stin94
+Jugador 2: Imre78
+Unidades desplegadas: 18
+Unidades sobrevivientes: 16
+Unidades destruidas2
+Ganó: No"];
+juego9 -> juego10;
+juego10 -> juego9;
+juego11 [label="Jugador 1: Stin94
+Jugador 2: Taon95
+Unidades desplegadas: 10
+Unidades sobrevivientes: 9
+Unidades destruidas1
+Ganó: Sí"];
+juego10 -> juego11;
+juego11 -> juego10;
+juego12 [label="Jugador 1: Stin94
+Jugador 2: Avey48
+Unidades desplegadas: 19
+Unidades sobrevivientes: 10
+Unidades destruidas9
+Ganó: No"];
+juego11 -> juego12;
+juego12 -> juego11;
+juego13 [label="Jugador 1: Stin94
+Jugador 2: Kaez42
+Unidades desplegadas: 17
+Unidades sobrevivientes: 8
+Unidades destruidas9
+Ganó: Sí"];
+juego12 -> juego13;
+juego13 -> juego12;
+juego14 [label="Jugador 1: Stin94
+Jugador 2: Idin94
+Unidades desplegadas: 23
+Unidades sobrevivientes: 3
+Unidades destruidas20
+Ganó: No"];
+juego13 -> juego14;
+juego14 -> juego13;
+juego15 [label="Jugador 1: Stin94
+Jugador 2: Jado86
+Unidades desplegadas: 28
+Unidades sobrevivientes: 5
+Unidades destruidas23
+Ganó: No"];
+juego14 -> juego15;
+juego15 -> juego14;
+}

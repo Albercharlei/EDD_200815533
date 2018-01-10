@@ -57,5 +57,50 @@ namespace ProyectServer
             siguiente = null;
             anterior = null;
         }
+
+        public class nodotopjuegos
+        {
+            public juego info;
+            public nodotopjuegos anterior;
+            public nodotopjuegos siguiente;
+            public int ataques;
+
+            public nodotopjuegos(juego ingreso)
+            {
+                info = ingreso;
+                anterior = null;
+                siguiente = null;
+            }
+        }
+
+        public class topjuegos
+        {
+            public nodotopjuegos primero;
+            public nodotopjuegos ultimo;
+
+            public topjuegos()
+            {
+                primero = null;
+                ultimo = null;
+            }
+
+            public void insertar(juego ingreso)
+            {
+                nodotopjuegos nuevo = new nodotopjuegos(ingreso);
+
+                nodotopjuegos temp = primero;
+                if(temp == null)
+                {
+                    primero = nuevo;
+                    ultimo = nuevo;
+                }
+
+                else
+                {
+                    //insertar al inicio
+                    //if(temp.info.)
+                }
+            }
+        }
     }
 }

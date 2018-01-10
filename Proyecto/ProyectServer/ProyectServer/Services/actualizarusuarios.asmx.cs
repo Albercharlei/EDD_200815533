@@ -41,6 +41,13 @@ namespace ProyectServer
         }
 
         [WebMethod]
+        public usuario insertarcontacto(usuario user, usuario contacto)
+        {
+            user.insertarcontacto(contacto);
+            return user;
+        }
+
+        [WebMethod]
         public binario eliminar(binario bin_, String nick_)
         {
             bin_.eliminar(nick_);

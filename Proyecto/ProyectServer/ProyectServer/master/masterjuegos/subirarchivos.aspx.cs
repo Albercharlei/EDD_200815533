@@ -25,6 +25,7 @@ namespace ProyectServer.master.masterjuegos
                 //obtener cada línea del texto
                 String[] lineas = entrada.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
                 //separa por comas
+                //cargar informacion de contactos
                 binario bin = (binario)Application["arbolusuarios"];
                 if(bin != null)
                 {
@@ -40,7 +41,20 @@ namespace ProyectServer.master.masterjuegos
                     }
                     Application["arbolusuarios"] = bin;
                 }
-                
+                //cargar lista de juegos de la aplicacion
+                listajuegos juegos = (listajuegos)Application["juegos"];
+                if (juegos == null) juegos = new listajuegos();
+                for(int i = 1; i < lineas.Length; i++)
+                {
+                    String[] contenido = lineas[i].Split(',');
+                    //ingresar el contenido
+                    try
+                    {
+                        juegos.insertar(contenido[0].ToString(), contenido[1].ToString(), Int32.Parse(contenido[2].ToString()), Int32.Parse(contenido[3].ToString()), Int32.Parse(contenido[4].ToString()), Int32.Parse(contenido[5].ToString()));
+                    }
+                    catch (IndexOutOfRangeException ex) { String outex = ex.ToString(); }
+                }
+                Application["juegos"] = juegos;//almacenar lista de juegos 
             }
         }
         //cargar juego actual

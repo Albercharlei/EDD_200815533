@@ -56,8 +56,9 @@ namespace ProyectServer
     public class avl
     {
         public nodoavl raiz;//raíz del árbol
+        public int cont;
 
-        public avl() { raiz = null; }
+        public avl() { raiz = null; cont = 0; }
 
         public nodoavl giroizq(nodoavl nodo)
         {
@@ -145,7 +146,11 @@ namespace ProyectServer
         {
             if (nodo == null)
             {
-                if (raiz == null) raiz = new nodoavl(nuevouser);//crear nueva raiz
+                if (raiz == null)
+                {
+                    raiz = new nodoavl(nuevouser);//crear nueva raiz
+                    cont++;
+                }
                 else insertar(nuevouser, raiz);//insertar a partir de la raiz
             }
             else
@@ -158,6 +163,7 @@ namespace ProyectServer
                         nodo.izq = new nodoavl(nuevouser);
                         nodo.izq.raiz = nodo;
                         rotacion(nodo.izq);//realizar balanceo
+                        cont++;
                     }
                     else insertar(nuevouser, nodo.izq);
                 }
@@ -169,6 +175,7 @@ namespace ProyectServer
                         nodo.der = new nodoavl(nuevouser);
                         nodo.der.raiz = nodo;
                         rotacion(nodo.der);//realizar balanceo
+                        cont++;
                     }
                     else insertar(nuevouser, nodo.der);
                 }
