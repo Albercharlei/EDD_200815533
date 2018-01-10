@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masteruser.master.cs" Inherits="ProyectServer.master.userlogged.masteruser" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="Titleplaceholder" runat="server"></asp:ContentPlaceHolder>
+                <Table>
+                    <tr>
+                        <td><asp:ContentPlaceHolder ID="Menuplaceholder" runat="server">
+                </asp:ContentPlaceHolder></td>
+                        <td><asp:ContentPlaceHolder ID="Content" runat="server">
+                </asp:ContentPlaceHolder></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </Table>
+            
+        </div>
+    </form>
+</body>
+</html>

@@ -12,6 +12,9 @@ namespace ProyectServer
         public String email;
         public int conectado;
         public listajuegos listado;
+        public avl contactos;
+        public int ganados;
+        public double porcentaje;
 
         public usuario raiz;
         public usuario izq;
@@ -25,7 +28,10 @@ namespace ProyectServer
             pass = pass_;
             email = email_;
             conectado = conectado_;
+            ganados = 0;
+            porcentaje = 0;
             listado = null;
+            contactos = null;
             raiz = null;
             izq = null;
             der = null;
@@ -42,7 +48,17 @@ namespace ProyectServer
         public void insertarjuego(String oponente_, int desplegadas_, int sobrevivientes_, int destruidas_, int gano_)
         {
             if (listado == null) listado = new listajuegos();
-            listado.insertar(nick, oponente_, desplegadas_, sobrevivientes_, destruidas_, gano_);
+            juego nuevo = listado.insertar(nick, oponente_, desplegadas_, sobrevivientes_, destruidas_, gano_);
+            //agregar contador de juegos
+            if (nuevo.gano == 1) ganados++;
+            //actualizar porcentaje
+            double porcentajenuevo = (double)nuevo.destruidas / (double)nuevo.desplegadas;
+            if (porcentajenuevo > porcentaje) porcentaje = porcentajenuevo;
+        }
+        //inserción en el nodo de contacto, el usuario a insertar ha sido previamente buscado o insertado
+        public void insertarcontacto(usuario insert)
+        {
+            this.contactos.insertar(insert, this.contactos.raiz);
         }
     }
 
@@ -55,14 +71,18 @@ namespace ProyectServer
             raiz = null;
         }
         //método de inserción en el árbol binario
-        public void insertar(String nick_, String pass_, String email_, int conectado_, usuario r)
+        public usuario insertar(String nick_, String pass_, String email_, int conectado_, usuario r)
         {
             //insertar desde la raiz
             if (r == null)
             {
                 //insertar en la raiz
-                if (raiz == null) raiz = new usuario(nick_, pass_, email_,conectado_);
-                else insertar(nick_, pass_, email_, conectado_, raiz);
+                if (raiz == null)
+                {
+                    raiz = new usuario(nick_, pass_, email_, conectado_);
+                    return raiz;
+                }
+                else return insertar(nick_, pass_, email_, conectado_, raiz);
             }
             else
             {
@@ -74,9 +94,10 @@ namespace ProyectServer
                     {
                         r.izq = new usuario(nick_, pass_, email_, conectado_);
                         r.izq.raiz = r;
+                        return r.izq;
                     }
                     //insertar en el arbol izquierdo
-                    else insertar(nick_, pass_, email_, conectado_, r.izq);
+                    else return insertar(nick_, pass_, email_, conectado_, r.izq);
                 }
                 //el nodo va al hijo derecho
                 else if (String.Compare(r.getnick(), nick_) < 0)
@@ -86,11 +107,13 @@ namespace ProyectServer
                     {
                         r.der = new usuario(nick_, pass_, email_, conectado_);
                         r.der.raiz = r;
+                        return r.der;
                     }
                     //insertar en el arbol izquierdo
-                    else insertar(nick_, pass_, email_, conectado_, r.der);
+                    else return insertar(nick_, pass_, email_, conectado_, r.der);
                 }
             }
+            return null;
         }
 
         //método de búsqueda de un usuario

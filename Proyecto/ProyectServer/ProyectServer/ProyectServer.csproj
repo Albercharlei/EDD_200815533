@@ -87,12 +87,34 @@
     <Content Include="Connected Services\actualizaruser\ProyectServer.actualizaruser.usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\graficarhistorial\graficarb.wsdl" />
+    <None Include="Connected Services\graficarcontactos\graficaravl.disco" />
+    <None Include="Connected Services\graficarcontactos\configuration91.svcinfo" />
+    <None Include="Connected Services\graficarcontactos\configuration.svcinfo" />
+    <None Include="Connected Services\graficarhistorial\graficarb.disco" />
+    <None Include="Connected Services\graficarhistorial\configuration91.svcinfo" />
+    <None Include="Connected Services\graficarhistorial\configuration.svcinfo" />
+    <Content Include="Connected Services\graficarhistorial\ProyectServer.graficarhistorial.graficarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\graficarhistorial\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\graficarcontactos\ProyectServer.graficarcontactos.graficarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\graficarcontactos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\tabfinal\ProyectServer.tabfinal.finalsobrevivientesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\tabfinal\ProyectServer.tabfinal.mo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\graficarcontactos\graficaravl.wsdl" />
     <None Include="Connected Services\tabfinal\tablerofinal.wsdl" />
     <None Include="Connected Services\usergraph\graficarusuarios.disco" />
     <None Include="Connected Services\usergraph\configuration91.svcinfo" />
@@ -118,14 +140,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="master\masterusers\hash.aspx" />
+    <Content Include="master\masterusers\reportes.aspx" />
+    <Content Include="Services\graficarb.asmx" />
     <Content Include="master\masterjuegos\subirarchivos.aspx" />
     <Content Include="master\masterjuegos\showtablero.aspx" />
     <Content Include="master\masterjuegos\showsobrevivientes.aspx" />
     <Content Include="master\masterjuegos\showdestruidos.aspx" />
     <Content Include="master\masterjuegos\crearjuego.aspx" />
     <Content Include="master\masterjuegos\agregarunidades.aspx" />
+    <Content Include="master\masterjuegos\historial.aspx" />
     <Content Include="master\masterusers\cargarjugadores.aspx" />
     <Content Include="master\masterusers\showespejo.aspx" />
+    <Content Include="master\masterusers\showcontactos.aspx" />
+    <Content Include="master\userlogged\userini.aspx" />
+    <Content Include="master\userlogged\cargarhistorial.aspx" />
+    <Content Include="master\userlogged\userlogin.aspx" />
+    <Content Include="master\userlogged\cargarcontactos.aspx" />
+    <Content Include="Services\graficaravl.asmx" />
     <Content Include="Services\graficartablero.asmx" />
     <Content Include="master\masterusers\updateusers.aspx" />
     <Content Include="master\masterusers\showusers.aspx" />
@@ -140,6 +172,7 @@
     <None Include="Connected Services\usergraph\graficarusuarios.wsdl" />
     <Content Include="master\masterusers\masterusers.Master" />
     <Content Include="master\masterjuegos\masterpartidas.Master" />
+    <Content Include="master\userlogged\masteruser.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -169,6 +202,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\graficarhistorial\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\graficarcontactos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\tabfinal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,6 +223,25 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="coord.cs" />
+    <Compile Include="hasht.cs" />
+    <Compile Include="master\masterusers\hash.aspx.cs">
+      <DependentUpon>hash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterusers\hash.aspx.designer.cs">
+      <DependentUpon>hash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterusers\reportes.aspx.cs">
+      <DependentUpon>reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterusers\reportes.aspx.designer.cs">
+      <DependentUpon>reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\graficarb.asmx.cs">
+      <DependentUpon>graficarb.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="listajuegos.cs" />
     <Compile Include="master\masterjuegos\masterpartidas.Master.cs">
       <DependentUpon>masterpartidas.Master</DependentUpon>
@@ -230,6 +292,13 @@
     <Compile Include="master\masterjuegos\agregarunidades.aspx.designer.cs">
       <DependentUpon>agregarunidades.aspx</DependentUpon>
     </Compile>
+    <Compile Include="master\masterjuegos\historial.aspx.cs">
+      <DependentUpon>historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterjuegos\historial.aspx.designer.cs">
+      <DependentUpon>historial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="master\masterusers\masterusers.Master.cs">
       <DependentUpon>masterusers.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,6 +319,52 @@
     </Compile>
     <Compile Include="master\masterusers\showespejo.aspx.designer.cs">
       <DependentUpon>showespejo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\masterusers\showcontactos.aspx.cs">
+      <DependentUpon>showcontactos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\masterusers\showcontactos.aspx.designer.cs">
+      <DependentUpon>showcontactos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\userlogged\masteruser.Master.cs">
+      <DependentUpon>masteruser.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\userlogged\masteruser.Master.designer.cs">
+      <DependentUpon>masteruser.Master</DependentUpon>
+    </Compile>
+    <Compile Include="master\userlogged\userini.aspx.cs">
+      <DependentUpon>userini.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\userlogged\userini.aspx.designer.cs">
+      <DependentUpon>userini.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\userlogged\cargarhistorial.aspx.cs">
+      <DependentUpon>cargarhistorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\userlogged\cargarhistorial.aspx.designer.cs">
+      <DependentUpon>cargarhistorial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\userlogged\userlogin.aspx.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\userlogged\userlogin.aspx.designer.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\userlogged\cargarcontactos.aspx.cs">
+      <DependentUpon>cargarcontactos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\userlogged\cargarcontactos.aspx.designer.cs">
+      <DependentUpon>cargarcontactos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\graficaravl.asmx.cs">
+      <DependentUpon>graficaravl.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\graficartablero.asmx.cs">
       <DependentUpon>graficartablero.asmx</DependentUpon>
@@ -324,7 +439,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="unit.cs" />
-    <Compile Include="usuario.cs" />
+    <Compile Include="árboles\arbolb.cs" />
+    <Compile Include="árboles\avl.cs" />
+    <Compile Include="árboles\inorder.cs" />
+    <Compile Include="árboles\usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -336,6 +454,8 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\accionlogin\" />
     <WCFMetadataStorage Include="Connected Services\actualizaruser\" />
+    <WCFMetadataStorage Include="Connected Services\graficarhistorial\" />
+    <WCFMetadataStorage Include="Connected Services\graficarcontactos\" />
     <WCFMetadataStorage Include="Connected Services\tabfinal\" />
     <WCFMetadataStorage Include="Connected Services\usergraph\" />
   </ItemGroup>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="graficar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arbol" type="tns:arbolb" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="arbolb">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="grado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="raiz" type="tns:nodob" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="nodob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="llaves" type="tns:ArrayOfAtaque" />
+          <s:element minOccurs="1" maxOccurs="1" name="grado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="hijos" type="tns:ArrayOfNodob" />
+          <s:element minOccurs="0" maxOccurs="1" name="padre" type="tns:nodob" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAtaque">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ataque" nillable="true" type="tns:ataque" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ataque">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="atacante" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="defensor" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="resultado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emisor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receptor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="restante" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="cont" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="unit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mov" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rmin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="rmax" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="hp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="atk" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="existe" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="izq" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="der" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="arriba" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="abajo" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="sup" type="tns:unit" />
+          <s:element minOccurs="0" maxOccurs="1" name="inf" type="tns:unit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNodob">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="nodob" nillable="true" type="tns:nodob" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="graficarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="graficarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="graficarSoapIn">
+    <wsdl:part name="parameters" element="tns:graficar" />
+  </wsdl:message>
+  <wsdl:message name="graficarSoapOut">
+    <wsdl:part name="parameters" element="tns:graficarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="graficarbSoap">
+    <wsdl:operation name="graficar">
+      <wsdl:input message="tns:graficarSoapIn" />
+      <wsdl:output message="tns:graficarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="graficarbSoap" type="tns:graficarbSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="graficar">
+      <soap:operation soapAction="http://tempuri.org/graficar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="graficarbSoap12" type="tns:graficarbSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="graficar">
+      <soap12:operation soapAction="http://tempuri.org/graficar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="graficarb">
+    <wsdl:port name="graficarbSoap" binding="tns:graficarbSoap">
+      <soap:address location="http://localhost:54818/Services/graficarb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="graficarbSoap12" binding="tns:graficarbSoap12">
+      <soap12:address location="http://localhost:54818/Services/graficarb.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

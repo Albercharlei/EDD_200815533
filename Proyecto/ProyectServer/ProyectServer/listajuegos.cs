@@ -12,10 +12,9 @@ namespace ProyectServer
 
         public listajuegos() {
             primero = null;
-            cont = 1;
         }
 
-        public void insertar(String userbase_, String oponente_, int desplegadas_, int sobrevivientes_, int destruidas_, int gano_)
+        public juego insertar(String userbase_, String oponente_, int desplegadas_, int sobrevivientes_, int destruidas_, int gano_)
         {
             juego nuevo = new juego(userbase_, oponente_, desplegadas_, sobrevivientes_, destruidas_, gano_);
             nuevo.cont = this.cont;
@@ -28,6 +27,7 @@ namespace ProyectServer
                 nuevo.anterior = temp;
             }
             cont++;
+            return nuevo;
         }
     }
 

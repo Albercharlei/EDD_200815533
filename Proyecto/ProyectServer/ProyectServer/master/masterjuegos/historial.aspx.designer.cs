@@ -10,7 +10,7 @@
 namespace ProyectServer.master.masterjuegos {
     
     
-    public partial class WebForm3 {
+    public partial class WebForm7 {
         
         /// <summary>
         /// Menu1 control.
@@ -20,5 +20,14 @@ namespace ProyectServer.master.masterjuegos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Menu Menu1;
+        
+        /// <summary>
+        /// grafob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image grafob;
     }
 }

@@ -1,0 +1,37 @@
+Digraph historial {
+Rankdir=TD
+node [shape = record]
+nodob2 [label = "<h0>|<l0> Atacante: Neosatelite1
+Defensor: Caza1
+Resultado: Eliminación de objetivo
+Emisor: Stin94
+Receptor: Mord96
+Fecha: 8/01/2017 00:00:00
+Tiempo restante: 00:01:58
+Número de ataque: 2|<h1>"];
+nodob1 [label = "<h0>|<l0> Atacante: Neosatelite1
+Defensor: Bombardero1
+Resultado: Golpe
+Emisor: Mord86
+Receptor: Stin94
+Fecha: 8/01/2017 00:00:00
+Tiempo restante: 00:02:00
+Número de ataque: 1|<h1>"];
+nodob2:h0->nodob1;
+nodob3 [label = "<h0>|<l0> Atacante: Helic�ptero1
+Defensor: Caza2
+Resultado: Eliminación de objetivo
+Emisor: Mord86
+Receptor: Stin94
+Fecha: 8/01/2017 00:00:00
+Tiempo restante: 00:01:50
+Número de ataque: 3|<h1>|<l1> Atacante: Submarino1
+Defensor: Fragata1
+Resultado: Golpe
+Emisor: Stin94
+Receptor: Mord96
+Fecha: 8/01/2017 00:00:00
+Tiempo restante: 00:01:45
+Número de ataque: 4|<h2>"];
+nodob2:h1->nodob3;
+}

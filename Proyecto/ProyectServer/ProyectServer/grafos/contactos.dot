@@ -1,0 +1,23 @@
+Digraph contactos {
+Rankdir=TD
+node [shape =circle]
+Nuevo [label="Usuario: Nuevo
+Contraseña: abdads
+email: correo@dominio.com"];
+Imre78 [label="Usuario: Imre78
+Contraseña: MDQ80CXX3XT
+email: eget.dictum.placerat@atsem.net"];
+Asro25 [label="Usuario: Asro25
+Contraseña: PDW92QLF0HC
+email: turpis.Aliquam.adipiscing@tincidunt.net"];
+Imre78 -> Asro25;
+Nuevo -> Imre78;
+Stin94 [label="Usuario: Stin94
+Contraseña: WAG95DOM2LZ
+email: in.tempus@a.com"];
+otro [label="Usuario: otro
+Contraseña: 123kjd
+email: correo2@dominio.com"];
+Stin94 -> otro;
+Nuevo -> Stin94;
+}
